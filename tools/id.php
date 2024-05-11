@@ -17,7 +17,7 @@ if ((strpos($message, "/id") === 0)||(strpos($message, "!id") === 0)||(strpos($m
 <b>[↯] 𝗨𝘀𝗲𝗿</b>: @".$username."
 <b>[↯] 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 👉 /cmds </b> ✅
 
- <b>💎 Bot By</b> ➔ @hackedworld69",
+ <b>💎 Bot By</b> ➔ @venkypanda82",
             'parse_mode'=>'html',
             'reply_to_message_id'=> $message_id
             ]);
