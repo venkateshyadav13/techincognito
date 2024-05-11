@@ -47,7 +47,7 @@ if (preg_match('/^(\/cmds|\.cmds|!cmds)/', $text)) {
         ]
     ]);
 
-    $caption = "Welcome To hackedworld69. Buy The Plan First.  /price 
+    $caption = "Welcome To Techincognito. Buy The Plan First.  /price 
   
 𝘾𝙝𝙚𝙖𝙥 𝙋𝙧𝙞𝙘𝙚 𝙛𝙤𝙧 𝙖𝙡𝙡✅";
     file_get_contents("https://api.telegram.org/bot$botToken/deleteMessage?chat_id=$chatId&message_id=$messageId");
@@ -71,7 +71,7 @@ if (preg_match('/^(\/price|\.price|!price)/', $text))
                                  ['text' => '𝙑𝙀𝙍𝙄𝙁𝙔 𝙋𝘼𝙔𝙈𝙀𝙉𝙏', 'url' => 'https://t.me/pandacc82'],   ], ]
     ]);
 
- $caption=" Pricing hackedworld69 Checker📍
+ $caption=" Pricing Techincognito Bot Checker📍
 ━━━━━━━━━━━━━━━━━━
 ⑄ 𝙎𝙐𝘽𝙎𝘾𝙍𝙄𝙋𝙏𝙄𝙊𝙉 𝙈𝙀𝙉𝙐 ⑄
 ━━━━━━━━━━━━━━━━━━
