@@ -13,7 +13,7 @@ ini_set('error_log', 'errors.log');
 $users = file_get_contents('Database/free.txt');
 $freeusers = explode("\n", $users);
 
-$videoURLStart = "https://t.me/venkypanda82/10";
+$videoURLStart = "https://t.me/pandacc82/3";
 
 
 if (preg_match('/^(\/start|\.start|!start)/', $text)) {
