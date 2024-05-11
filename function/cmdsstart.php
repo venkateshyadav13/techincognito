@@ -13,12 +13,12 @@ ini_set('error_log', 'errors.log');
 $users = file_get_contents('Database/free.txt');
 $freeusers = explode("\n", $users);
 
-$videoURLStart = "https://t.me/hackedworld69/10";
+$videoURLStart = "https://t.me/venkypanda82/10";
 
 
 if (preg_match('/^(\/start|\.start|!start)/', $text)) {
     if (in_array($userId, $freeusers)) {
-        $caption = "𝗪𝗲𝗹𝗰𝗼𝗺𝗲 <code>@$username</code> 𝘁𝗼 hackedworld69 Checker 💖
+        $caption = "𝗪𝗲𝗹𝗰𝗼𝗺𝗲 <code>@$username</code> 𝘁𝗼 venkypanda82 Checker 💖
  
 ✅𝙔𝙤𝙪𝙧 𝙍𝙖𝙣𝙠 ->><code>$rank</code>
 
@@ -33,7 +33,7 @@ if (preg_match('/^(\/start|\.start|!start)/', $text)) {
 //=========START END========//
 if (preg_match('/^(\/cmds|\.cmds|!cmds)/', $text)) {
 
-    $videoUrl = "https://t.me/hackedworld69/10"; 
+    $videoUrl = "https://t.me/pandacc82/3"; 
 
     $keyboard2 = json_encode([
         'inline_keyboard' => [
@@ -42,7 +42,7 @@ if (preg_match('/^(\/cmds|\.cmds|!cmds)/', $text)) {
                                  ['text' => '𝙏𝙊𝙊𝙇𝙎 ', 'callback_data' => 'herr'],
                                  ],
                                  [
-                                 ['text' => '@hackedworld69', 'callback_data' => 'channel'],
+                                 ['text' => '@venkypanda82', 'callback_data' => 'channel'],
                              ],
         ]
     ]);
@@ -62,13 +62,13 @@ if (preg_match('/^(\/price|\.price|!price)/', $text))
 
 {
 
-    $videoUrl = "https://t.me/hackedworld69/10"; 
+    $videoUrl = "https://t.me/pandacc82/3"; 
 
     $keyboard2 = json_encode([
         'inline_keyboard' => [
             [
                       
-                                 ['text' => '𝙑𝙀𝙍𝙄𝙁𝙔 𝙋𝘼𝙔𝙈𝙀𝙉𝙏', 'url' => 'https://t.me/Gopinoob'],   ], ]
+                                 ['text' => '𝙑𝙀𝙍𝙄𝙁𝙔 𝙋𝘼𝙔𝙈𝙀𝙉𝙏', 'url' => 'https://t.me/pandacc82'],   ], ]
     ]);
 
  $caption=" Pricing hackedworld69 Checker📍

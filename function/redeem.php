@@ -20,7 +20,7 @@ if (strpos($message, "/redeem") === 0) {
                 $expiryDate = date('Y-m-d', strtotime("+$expiryDays days"));
                 file_put_contents('Database/paid.txt', "$userId $expiryDate\n", FILE_APPEND);
 
-                sendMessage($chatId, "𝗞𝗲𝘆 𝗥𝗲𝗱𝗲𝗲𝗺𝗲𝗱 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆! 🎉                                                      𝐃𝐨 𝐉𝐨𝐢𝐧 @hackedworld69", $messageId);
+                sendMessage($chatId, "𝗞𝗲𝘆 𝗥𝗲𝗱𝗲𝗲𝗺𝗲𝗱 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆! 🎉                                                      𝐃𝐨 𝐉𝐨𝐢𝐧 @venkypanda82", $messageId);
             } else {
                 $newCodesAndExpiryDays[] = $line;
             }

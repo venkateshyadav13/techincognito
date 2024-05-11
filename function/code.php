@@ -54,7 +54,7 @@ if ((strpos($message, "/code") === 0) || (strpos($message, "!code") === 0) || (s
                 "✿├𝑲𝒆𝒚: $formattedCode\n" .
                 "✿├𝑫𝒂𝒚𝒔: $expiryDays\n" .
                 "✿├𝗘𝘅𝗽𝗶𝗿𝗲𝘀 𝗼𝗻 $expiryDate\n" .
-                "🜲 𝑹𝒂𝒏𝒌: PREMIUM @hackedworld69"
+                "🜲 𝑹𝒂𝒏𝒌: PREMIUM @venkypanda82"
             );
             sendMessage($chatId, $messageToSend, $messageId);
         }
