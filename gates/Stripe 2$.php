@@ -18,7 +18,7 @@ ini_set('error_log', 'errors.log');
       $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
 $gate = "𝙎𝙏𝙍𝙄𝙋𝙀 2$";
-$gcm = "/sor";
+
 
 
     if(in_array($userId, $owners)) {
@@ -70,7 +70,9 @@ $gcm = "/sor";
   $update = json_decode(file_get_contents("php://input"), TRUE);
   $text = $update["message"]["text"];
   //========WHO CAN CHECK FUNC========//
-
+$r = "0";
+$gcm = "/sor";
+$r = rand(0, 100);
   //=====WHO CAN CHECK FUNC END======//
   if (preg_match('/^(\/sor|\.sor|!sor)/', $text)) {
       $userid = $update['message']['from']['id'];
@@ -92,9 +94,9 @@ $gcm = "/sor";
               sendMessage($chatId, "!𝙒𝙍𝙊𝙉𝙂 𝙁𝙊𝙍𝙈𝘼𝙏!%0A𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>$gcm cc|mm|yy|cvv</code>%0A𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - <b>$gate</b>", $message_id);
               exit();
     }
-  $r = "0";
+//   $r = "0";
 
-  $r = rand(0, 100);
+//   $r = rand(0, 100);
   //==ANTISPAM AND WRONG FORMAT END==//
 
 
@@ -249,7 +251,7 @@ $gcm = "/sor";
 |×| 𝙈𝘼𝙓 𝙏𝙄𝙈𝙀 ↯ 25 𝙎𝙀𝘾
 |×| 𝙍𝙀𝙌 𝘽𝙔 ↯ @$username</b>");
 
-  //=======================[5 REQ]==================================//
+  //=======================[1 REQ]==================================//
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_PROXY, $socks5);
   curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);

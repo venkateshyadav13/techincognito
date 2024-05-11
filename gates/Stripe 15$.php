@@ -18,7 +18,6 @@ ini_set('error_log', 'errors.log');
       $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
 $gate = "Stripe 15$";
-$gcm = "/str";
 
 
     if(in_array($userId, $owners)) {
@@ -70,7 +69,9 @@ $gcm = "/str";
   $update = json_decode(file_get_contents("php://input"), TRUE);
   $text = $update["message"]["text"];
   //========WHO CAN CHECK FUNC========//
-
+$r = "0";
+$gcm = "/str";
+$r = rand(0, 100);
   //=====WHO CAN CHECK FUNC END======//
   if (preg_match('/^(\/str|\.str|!str)/', $text)) {
       $userid = $update['message']['from']['id'];

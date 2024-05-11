@@ -1,10 +1,13 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+ini_set('log_errors', TRUE);
+ini_set('error_log', 'errors.log');
 //=========RANK DETERMINE=========//
 
 $gate = "𝙎𝙏𝙍𝙄𝙋𝙀 𝘼𝙐𝙏𝙃";
-$gcm = "/ss";
-
-
 
 $currentDate = date('Y-m-d');
 $currentDate = date('Y-m-d');
@@ -65,7 +68,7 @@ $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];
 //========WHO CAN CHECK FUNC========//
 $r = "0";
-
+$gcm = "/ss";
 $r = rand(0, 100);
 //=====WHO CAN CHECK FUNC END======//
 if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
@@ -112,7 +115,6 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
     $amount = $amt * 100;
     //------------Card info------------//
     $lista = '' . $cc . '|' . $mes . '|' . $an . '|' . $cvv . '';
-
   
   $ch = curl_init();
 
@@ -149,7 +151,7 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
     $url = "$url";
     $type = strtoupper($type);
   
-
+ //==================[BIN LOOK-UP-END]======================//
 
   bot('editMessageText', [
             'chat_id' => $chat_id,
@@ -171,7 +173,7 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
 
     //------------Card info------------//
 
-    # -------------------- [1 REQ] -------------------#
+   
 
     $proxie = null;
     $pass = null;
@@ -183,7 +185,7 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
         $str = explode($end, $str[1]);
         return $str[0];
     }
-
+ # -------------------- [1 REQ] -------------------#
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://catechdepot.com/');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

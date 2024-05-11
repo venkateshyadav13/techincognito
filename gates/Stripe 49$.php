@@ -1,4 +1,9 @@
   <?php
+  error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+ini_set('log_errors', TRUE);
+ini_set('error_log', 'errors.log');
   //=========RANK DETERMINE=========//
   $currentDate = date('Y-m-d');
       $rank = "FREE";
@@ -61,7 +66,9 @@ $gcm = "/dep";
   $update = json_decode(file_get_contents("php://input"), TRUE);
   $text = $update["message"]["text"];
   //========WHO CAN CHECK FUNC========//
-
+$r = "0";
+$gcm = "/dep";
+$r = rand(0, 100);
   //=====WHO CAN CHECK FUNC END======//
   if (preg_match('/^(\/dep|\.dep|!dep)/', $text)) {
       $userid = $update['message']['from']['id'];

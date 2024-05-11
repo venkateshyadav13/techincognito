@@ -57,7 +57,9 @@ $currentDate = date('Y-m-d');
 $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];
 //========WHO CAN CHECK FUNC========//
-
+$r = "0";
+$gcm = "/lul";
+$r = rand(0, 100);
 //=====WHO CAN CHECK FUNC END======//
 if (preg_match('/^(\/lul|\.lul|!lul)/', $text)) {
     $userid = $update['message']['from']['id'];

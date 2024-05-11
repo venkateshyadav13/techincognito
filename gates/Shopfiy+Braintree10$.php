@@ -61,7 +61,7 @@ if (in_array($userId, $owners)) {
     }
 }
 
-$gcm = ""
+$gcm = "";
 //=======RANK DETERMINE END=========//
 $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];

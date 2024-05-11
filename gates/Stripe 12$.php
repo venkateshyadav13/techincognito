@@ -67,7 +67,9 @@ $gcm = "/dep";
   $update = json_decode(file_get_contents("php://input"), TRUE);
   $text = $update["message"]["text"];
   //========WHO CAN CHECK FUNC========//
-
+$r = "0";
+$gcm = "/pox";
+$r = rand(0, 100);
   //=====WHO CAN CHECK FUNC END======//
   if (preg_match('/^(\/pox|\.pox|!pox)/', $text)) {
       $userid = $update['message']['from']['id'];
@@ -232,21 +234,7 @@ $gcm = "/dep";
 
   //==================[BIN LOOK-UP-END]======================//
 
-
-
-    sleep(1);
-        edit_sent_message($chatId, $sent_message_id, "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■□□□
-- - - - - - - - - - - - - - - - - - -
-[×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
-[×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
-[×] 𝘽𝘼𝙉𝙆 ↯ $bank
-[×] 𝙏𝙔𝙋𝙀 ↯ $bininfo
-[×] 𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ $country
-- - - - - - - - - - - - - - - - - - -
-|×| 𝙈𝘼𝙓 𝙏𝙄𝙈𝙀 ↯ 25 𝙎𝙀𝘾
-|×| 𝙍𝙀𝙌 𝘽𝙔 ↯ @$username</b>");
-
-  //=======================[5 REQ]==================================//
+  //=======================[1 REQ]==================================//
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_PROXY, $socks5);
   curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);

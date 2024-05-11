@@ -69,7 +69,9 @@ $currentDate = date('Y-m-d');
 $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];
 //========WHO CAN CHECK FUNC========//
-
+$r = "0";
+$gcm = "/sec";
+$r = rand(0, 100);
 //=====WHO CAN CHECK FUNC END======//
 if (preg_match('/^(\/sec|\.sec|!sec)/', $text)) {
     $userid = $update['message']['from']['id'];
@@ -91,9 +93,9 @@ $start_time = microtime(true);
             sendMessage($chatId, '!𝙒𝙍𝙊𝙉𝙂 𝙁𝙊𝙍𝙈𝘼𝙏!%0A𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>/sec cc|mm|yy|cvv</code>%0A𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - <b>𝙎𝙏𝙍𝙄𝙋𝙀 8.61$</b>', $message_id);
             exit();
   }
-  $r = "112";
+//   $r = "112";
 
-  $r = rand(112, 199);
+//   $r = rand(112, 199);
 //==ANTISPAM AND WRONG FORMAT END==//
 
 
