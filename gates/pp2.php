@@ -1,4 +1,11 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+ini_set('log_errors', TRUE);
+ini_set('error_log', 'errors.log');
+
 //=========RANK DETERMINE=========//
 $currentDate = date('Y-m-d');
     $rank = "FREE";
@@ -347,7 +354,11 @@ sleep(1);
 [↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username/<code>[$rank]</code>
 [↯] 𝗕𝗢𝗧 𝗕𝗬 ↯ @BlackHeadsOP 
 ━━━━━━━━━━━━━━━━━━</b>");
-//=======================[5 REQ]==================================//
+//=======================[1 REQ]==================================//
+$x = 0;
+while(true)
+{
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, $socks5);
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
@@ -383,8 +394,22 @@ $brandi = trim(strip_tags(getStr($result1,'"brand": "','"')));
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
+if (strpos($result1,"rate_limit"))
+{
+    $x++;
+    continue;
+}
+
+break;
+}
 //==================req 1 end===============//
 //==================req 2===============//
+
+$x = 0;
+ while (true) 
+ {
+  
+ 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, $socks5);
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
@@ -431,6 +456,15 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
 $result2 = curl_exec($ch);
 $msg = trim(strip_tags(getStr($result2,'<div id="pmpro_message_bottom" class="pmpro_message pmpro_error">','</div>')));
+
+if (strpos($result2,"rate_limit"))
+{
+    $x++;
+    continue;
+}
+
+break;
+ }
 
 //==================req 2 end===============//
 
