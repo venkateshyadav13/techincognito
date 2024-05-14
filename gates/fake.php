@@ -68,14 +68,14 @@ $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];
 //========WHO CAN CHECK FUNC========//
 $r = "0";
-$gcm = "/ve";
+$gcm = "/vg";
 $r = rand(0, 100);
 //=====WHO CAN CHECK FUNC END======//
 function makearray($message){
     return explode("\n", $message);
 }
 
-if (preg_match('/^(\/ve|\.ve|!ve)/', $text)) {
+if (preg_match('/^(\/vg|\.vg|!vg)/', $text)) {
     $userid = $update['message']['from']['id'];
 
     if (!checkAccess($userid)) {
@@ -83,7 +83,7 @@ if (preg_match('/^(\/ve|\.ve|!ve)/', $text)) {
         exit();
     }
 
-    $cclist = preg_replace("/[^0-9|\n]/", "",$message);
+    $cclist = preg_replace("/[^0-9|\n]/", "",$text);
     $array = explode("\n", $cclist);
     $arraylen = count($array);
     $new_array = [];
