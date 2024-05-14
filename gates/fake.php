@@ -108,7 +108,7 @@ if (preg_match('/^(\/vg|\.vg|!vg)/', $text)) {
     $mes = multiexplode(array(":", "/", " ", "|"), $message)[1];
     $ano = multiexplode(array(":", "/", " ", "|"), $message)[2];
     $cvv = multiexplode(array(":", "/", " ", "|"), $message)[3];
-   
+    $lista = '' . $cc . '|' . $mes . '|' . $an . '|' . $cvv . '';
     if (empty($cc) || empty($cvv) || empty($mes) || empty($ano)) {
         bot('editMessageText', [
             'chat_id' => $chat_id,
@@ -119,9 +119,6 @@ if (preg_match('/^(\/vg|\.vg|!vg)/', $text)) {
         ]);
         return;
     };
-    if (strlen($ano) == '4') {
-        $an = substr($ano, 2);
-    }
     //------------Card info------------//
     $lista = '' . $cc . '|' . $mes . '|' . $an . '|' . $cvv . '';
   
