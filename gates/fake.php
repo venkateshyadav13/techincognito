@@ -71,7 +71,7 @@ $r = "0";
 $gcm = "/gree";
 $r = rand(0, 100);
 //=====WHO CAN CHECK FUNC END======//
-if (preg_match('/^(\/gree|\.gree|!gree)/', $text)) {
+if (preg_match('/^(\/gree|\.gree|!gree)/' == 0, $text)) {
     $userid = $update['message']['from']['id'];
 
     if (!checkAccess($userid)) {
@@ -79,7 +79,7 @@ if (preg_match('/^(\/gree|\.gree|!gree)/', $text)) {
         exit();
     }
 
-    if((strpos($message, "/gree") === 0)||(strpos($message, "!gree") === 0)||(strpos($message, ".gree") === 0)){
+
 
     
     $start_time = microtime(true);
@@ -88,15 +88,16 @@ if (preg_match('/^(\/gree|\.gree|!gree)/', $text)) {
     $message_id = $update["message"]["message_id"];
     $keyboard = "";
     $message = substr($message, 4);
+
       $listas = explode("\n",$message);
           $c = count($listas);
           $c = $c - 1;
     if($c>30)
     {
-      sendMessage($chatId,"NOT MORE THAN 30 CCS AT A TIME",$message_id);
+      sendMessage($chat_id,"NOT MORE THAN 30 CCS AT A TIME",$message_id);
       exit();
     }
-$message = send_reply($chatId,$keyboard,urlencode("
+$message = send_reply($chat_id,$message_id,urlencode("
 𝗖𝗖𝗦 𝗙𝗢𝗨𝗡𝗗 $c
 "),$messageId);
 $messageidtoedit1 = json_decode($message, TRUE);
@@ -107,17 +108,15 @@ $messageidtoedit1 = json_decode($message, TRUE);
         'reply_to_message_id' => $message_id
     ]);
 
-    $bln = $c;
     while($c>0)
     {
-
     $messageidtoedit = Getstr(json_encode($messageidtoedit1), '"message_id":', ',');
     $lista = $listas[$c];
     $cc = multiexplode(array(":", "/", " ", "|"), $message)[0];
     $mes = multiexplode(array(":", "/", " ", "|"), $message)[1];
     $ano = multiexplode(array(":", "/", " ", "|"), $message)[2];
     $cvv = multiexplode(array(":", "/", " ", "|"), $message)[3];
-    $amt = '1';
+    $lista = "$cc|$mes|$ano|$cvv";
     if (empty($cc) || empty($cvv) || empty($mes) || empty($ano)) {
         bot('editMessageText', [
             'chat_id' => $chat_id,
@@ -128,18 +127,13 @@ $messageidtoedit1 = json_decode($message, TRUE);
         ]);
         return;
     };
-    if (strlen($ano) == '4') {
-        $an = substr($ano, 2);
-    } else {
-        $an = $ano;
-    }
-    $amount = $amt * 100;
-    //------------Card info------------//
-    $lista = '' . $cc . '|' . $mes . '|' . $an . '|' . $cvv . '';
-  
-  $ch = curl_init();
 
+    if (strlen($mes) == 1) $mes = "0$mes";
+    if (strlen($ano) == 2) $ano = "20$ano";
+    //------------Card info------------//
+  
   $bin = substr($cc, 0, 6);
+  $ch = curl_init();
 
   curl_setopt($ch, CURLOPT_URL, 'https://binlist.io/lookup/' . $bin . '/');
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -171,7 +165,6 @@ $messageidtoedit1 = json_decode($message, TRUE);
     $bininfo = "$type - $brand - $category";
     $url = "$url";
     $type = strtoupper($type);
-  retry:
  //==================[BIN LOOK-UP-END]======================//
 
   bot('editMessageText', [
@@ -446,7 +439,6 @@ $messageidtoedit1 = json_decode($message, TRUE);
               $es = '𝘿𝙀𝘾𝙇𝙄𝙉𝙀𝘿 ❌'; 
               $msg =  "$msg";
 
-
     }
 $c--;
 }
@@ -470,5 +462,4 @@ $botu
         'parse_mode' => 'html',
         'disable_web_page_preview' => 'true'
     ]);
-}
 }
