@@ -1,4 +1,10 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+ini_set('log_errors', TRUE);
+ini_set('error_log', 'errors.log');
 //=========RANK DETERMINE=========//
 $gate = "Adyen Auth";
 $currentDate = date('Y-m-d');
@@ -80,9 +86,9 @@ $start_time = microtime(true);
             sendMessage($chatId, '<b>• Wrong Format! ⚠️</b>         𝘚𝘦𝘯𝘥 <code>/any cc|mm|yy|cvv</code>        • 𝘎𝘢𝘵𝘦𝘸𝘢𝘺 <code>'.$gate.'</code>', $message_id);
             exit();
   }
-  $r = "112";
+  $r = "0";
 
-  $r = rand(112, 199);
+  $r = rand(0, 100);
 //==ANTISPAM AND WRONG FORMAT END==//
 
 
