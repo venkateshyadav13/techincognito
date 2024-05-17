@@ -1,4 +1,9 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+ini_set('log_errors', TRUE);
+ini_set('error_log', 'errors.log');
 //=========RANK DETERMINE=========//
 $gate = "Braintree 1$ Avs";
 $currentDate = date('Y-m-d');
