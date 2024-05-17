@@ -87,7 +87,7 @@ $start_time = microtime(true);
             exit();
   }
   $r = "0";
-
+$gcm = "any";
   $r = rand(0, 100);
 //==ANTISPAM AND WRONG FORMAT END==//
 
