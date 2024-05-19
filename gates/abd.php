@@ -65,7 +65,7 @@ $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];
 //========WHO CAN CHECK FUNC========//
 $r = "0";
-$gcm = "/ba";
+$gcm = "/bv";
 $r = rand(0, 100);
 //=====WHO CAN CHECK FUNC END======//
 if (preg_match('/^(\/bv|\.bv|!bv)/', $text)) {
