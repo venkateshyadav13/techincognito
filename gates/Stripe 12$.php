@@ -62,7 +62,7 @@ $gate = "𝙎𝙏𝙍𝙄𝙋𝙀 12$";
           }
       }
 
-$gcm = "/dep";
+
   //=======RANK DETERMINE END=========//
   $update = json_decode(file_get_contents("php://input"), TRUE);
   $text = $update["message"]["text"];
@@ -91,10 +91,6 @@ $r = rand(0, 100);
               sendMessage($chatId, '!!𝙒𝙍𝙊𝙉𝙂 𝙁𝙊𝙍𝙈𝘼𝙏!%0A𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>/pox cc|mm|yy|cvv</code>%0A𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - <b>𝙎𝙏𝙍𝙄𝙋𝙀 12$/b>', $message_id);
               exit();
     }
-  $r = "0";
-
-  $r = rand(0, 100);
-  //==ANTISPAM AND WRONG FORMAT END==//
 
 
   //=======checker part start========//

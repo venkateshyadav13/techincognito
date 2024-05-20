@@ -68,7 +68,7 @@ $gate = "Stripe 5.48$";
   $text = $update["message"]["text"];
   //========WHO CAN CHECK FUNC========//
 $r = "0";
-$gcm = "/bu";
+$gcm = "/stp";
 $r = rand(0, 100);
   //=====WHO CAN CHECK FUNC END======//
   if (preg_match('/^(\/stp|\.stp|!stp)/', $text)) {
@@ -91,10 +91,7 @@ $r = rand(0, 100);
               sendMessage($chatId, "!𝙔𝙤𝙪 𝘿𝙪𝙢𝙗𝙤 𝘼𝙨𝙨 𝙃𝙤𝙡𝙚!%0A𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>$gcm cc|mm|yy|cvv</code>%0A𝙂𝙖𝙩𝙚𝙬𝙖𝙮 - <b>$gate</b>", $message_id);
               exit();
     }
-  $r = "0";
 
-  $r = rand(0, 100);
-  //==ANTISPAM AND WRONG FORMAT END==//
 
 
   //=======checker part start========//

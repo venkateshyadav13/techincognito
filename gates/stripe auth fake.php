@@ -71,7 +71,7 @@ $r = "0";
 $gcm = "/gree";
 $r = rand(0, 100);
 //=====WHO CAN CHECK FUNC END======//
-if (preg_match('/^(\/gree|\.gree|!gree)/' == 0, $text)) {
+if (preg_match('/^(\/gree|\.gree|!gree)/', $text)) {
     $userid = $update['message']['from']['id'];
 
     if (!checkAccess($userid)) {

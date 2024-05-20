@@ -1,4 +1,10 @@
   <?php
+
+  error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+ini_set('log_errors', TRUE);
+ini_set('error_log', 'errors.log');
   //=========RANK DETERMINE=========//
   $currentDate = date('Y-m-d');
       $rank = "FREE";
@@ -60,6 +66,10 @@ $gate = "𝘼𝙐𝙏𝙃𝙊𝙍𝙄𝙕𝙀 𝙉𝙀𝙏 7$";
   $text = $update["message"]["text"];
   //========WHO CAN CHECK FUNC========//
 
+  $r = "0";
+$gcm = "/asd";
+$r = rand(0, 100);
+
   //=====WHO CAN CHECK FUNC END======//
   if (preg_match('/^(\/asd|\.asd|!asd)/', $text)) {
       $userid = $update['message']['from']['id'];
@@ -81,9 +91,6 @@ $gate = "𝘼𝙐𝙏𝙃𝙊𝙍𝙄𝙕𝙀 𝙉𝙀𝙏 7$";
               sendMessage($chatId, '!𝙒𝙍𝙊𝙉𝙂 𝙁𝙊𝙍𝙈𝘼𝙏!%0A𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>/asd cc|mm|yy|cvv</code>%0A𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - <b>𝘼𝙐𝙏𝙃𝙊𝙍𝙄𝙕𝙀 𝙉𝙀𝙏 7$</b>', $message_id);
               exit();
     }
-  $r = "0";
-
-  $r = rand(0, 100);
   //==ANTISPAM AND WRONG FORMAT END==//
 
 
