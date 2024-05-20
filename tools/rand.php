@@ -9,7 +9,7 @@ if (preg_match('/^(\/fake|\.fake|!fake)/', $text)) {
         exit();
     }
    
-    $get = file_get_contents('https://randomuser.me/api/1.2/?nat='.$add.'');
+    $get = file_get_contents('https://randomuser.me/api/1.4/?nat='.$add.'');
     $get = strtoupper($get);
     preg_match_all("(\"first\":\"(.*)\")siU", $get, $matches1);
     $first = $matches1[1][0];
@@ -123,9 +123,11 @@ if (preg_match('/^(\/fake|\.fake|!fake)/', $text)) {
  <b>STATE</b> » <code>$state1</code>
  <b>POSTAL CODE</b> » <code>$zip</code>
  <b>PHONE NUMBER</b> » <code>$phone</code>
+ <b>CELL</b>» <code>$cell</code>
  <b>COUNTRY</b> » <code>$con</code>
  <b>GENDER</b> » <code>$gender</code>
- <b>AGE</b>» <code>$age</code>
+ <b>USER NAME</b>» <code>$usrnme</code>
+ <b>PASS</b>» <code>$pass</code>
  <b>DOB</b> » <code>$dob</code>
  <b>SSN</b> » <code>$ssn</code>
  <b>EMAIL</b> » <code>$email</code>
