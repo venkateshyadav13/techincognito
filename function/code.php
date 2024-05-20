@@ -25,7 +25,7 @@ if ((strpos($message, "/code") === 0) || (strpos($message, "!code") === 0) || (s
         } else {
             $cmdExplode = explode('-', $command);
             if (count($cmdExplode) != 2) {
-                sendMessage($chatId, "⚠️ 𝗜𝗻𝘃𝗮𝗹𝗶𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗳𝗼𝗿𝗺𝗮𝘁.                                           /code {expiry_days}-{amount_of_codes}", $messageId);
+                sendMessage($chatId, "⚠️ 𝗜𝗻𝘃𝗮𝗹𝗶𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗳𝗼𝗿𝗺𝗮𝘁.             /code {expiry_days}-{amount_of_codes}", $messageId);
                 exit;
             }
             $expiryDays = (int)$cmdExplode[0];
@@ -54,7 +54,7 @@ if ((strpos($message, "/code") === 0) || (strpos($message, "!code") === 0) || (s
                 "✿├𝑲𝒆𝒚: $formattedCode\n" .
                 "✿├𝑫𝒂𝒚𝒔: $expiryDays\n" .
                 "✿├𝗘𝘅𝗽𝗶𝗿𝗲𝘀 𝗼𝗻 $expiryDate\n" .
-                "🜲 𝑹𝒂𝒏𝒌: PREMIUM @venkypanda82"
+                "🜲 𝑹𝒂𝒏𝒌: PREMIUM "
             );
             sendMessage($chatId, $messageToSend, $messageId);
         }

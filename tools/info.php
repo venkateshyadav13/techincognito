@@ -21,7 +21,7 @@ function getUserProfilePhoto($userId) {
 
 
 //============function end==========//
-if (preg_match('/^(\/info|\.id|!id)/', $text)) {
+if (preg_match('/^(\/info|\.info|!info)/', $text)) {
 
     $photoId = getUserProfilePhoto($userId);
 

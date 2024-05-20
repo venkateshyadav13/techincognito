@@ -14,7 +14,7 @@ if (preg_match('/\/register/', $message)) {
         fclose($file);
 
         $response = '𝙐𝙎𝙀𝙍 𝙍𝙀𝙂𝙄𝙎𝙏𝙀𝙍𝙀𝘿 𝙎𝙐𝘾𝘾𝙀𝙎𝙎𝙁𝙐𝙇𝙇𝙔 ✅!
-        Now click /start';
+        Now click /start to start using the bot.';
     }
 
     // Send the response.

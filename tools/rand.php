@@ -117,12 +117,19 @@ if (preg_match('/^(\/fake|\.fake|!fake)/', $text)) {
     }
     $respo = urlencode("<b>Fake Address Generated ✅
   ═════════════════
-🗺️ 𝘾𝙊𝙐𝙉𝙏𝙍𝙔 » <code>$con</code>
-🛣️ 𝙎𝙏𝙍𝙀𝙀𝙏 » <code>$street</code>
-🌇 𝘾𝙄𝙏𝙔 » <code>$city</code>
-🏠 𝙎𝙏𝘼𝙏𝙀 » <code>$state1</code>
-📮 𝙕𝙄𝙋 𝘾𝙊𝘿𝙀 » <code>$zip</code>
-☎️ 𝙏𝙀𝙇𝙀𝙋𝙃𝙊𝙉𝙀 » <code>$phone</code>
+ <b>NAME</b> » <code>$first $last</code>
+ <b>STREET</b> » <code>$street</code>
+ <b>CITY</b> » <code>$city</code>
+ <b>STATE</b> » <code>$state1</code>
+ <b>POSTAL CODE</b> » <code>$zip</code>
+ <b>PHONE NUMBER</b> » <code>$phone</code>
+ <b>COUNTRY</b> » <code>$con</code>
+ <b>GENDER</b> » <code>$gender</code>
+ <b>AGE</b>» <code>$age</code>
+ <b>DOB</b> » <code>$dob</code>
+ <b>SSN</b> » <code>$ssn</code>
+ <b>EMAIL</b> » <code>$email</code>
+ <b>SALT</b> » <code>$salt</code>
  ═════════════════
 •├𝙍𝙀𝙌 » @$username <code>[$rank]</code>
 •├𝘿𝙀𝙑 » <code>@venkypanda82</code>    

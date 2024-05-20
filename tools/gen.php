@@ -1,5 +1,5 @@
 <?php
-
+include_once __DIR__."/../tools/bin.php";
 function sendMessageWithInlineKeyboard($chatId, $response, $messageId = null) {
     $inline_keyboard = array(
         array(
@@ -131,17 +131,21 @@ foreach ($cardsResponse as $card) {
 
     $response .= "<code>$cc|$mm|$yy|$cvv\n</code>";
 }
-
-// Append BIN information to the response string
 $name = strtoupper($binInfo['country']['name'] ?? '');
 $brand = strtoupper($binInfo['scheme'] ?? '');
 $type = strtoupper($binInfo['type'] ?? '');
 $bank = isset($binInfo['bank']['name']) ? strtoupper($binInfo['bank']['name']) : '';
+$response .= "
+       Country name:$name
+       Scheme name:$brand
+       Type:$type
+       Bank name:$bank\n\n";
+             
 
 $response .= "━━━━━━━━━━━━━━━━━━━━━\n\n";
 
 // Append a custom footer to the response
-$response .= "𝘽𝙊𝙏 𝙊𝙒𝙉𝙀𝙍 ↯ @Gopinoob";
+$response .= "𝘽𝙊𝙏 𝙊𝙒𝙉𝙀𝙍 ↯ @venkypanda82";
 
     return $response;
 }
@@ -197,7 +201,7 @@ function parseCCFormat($input) {
         $ccInfo = [];
         $parts = explode('|', $input);
         if (count($parts) >= 4) {
-            $ccInfo['ccNumber'] = str_replace('x', null, $parts[0]);
+            $ccInfo['ccNumber'] = str_replace('x', '', $parts[0]);
             $ccInfo['expirationMonth'] = $parts[1];
             $ccInfo['expirationYear'] = $parts[2];
             $ccInfo['cvv'] = str_replace('xxx', generateRandomCVV(), $parts[3]);
@@ -213,7 +217,7 @@ function parseCCFormat($input) {
         return $ccInfo;
     } else {
         $ccInfo = [];
-        $ccInfo['ccNumber'] = str_replace('x', null, $input);
+        $ccInfo['ccNumber'] = str_replace('x', '', $input);
         $ccInfo['expirationMonth'] = str_pad(rand(1, 12), 2, "0", STR_PAD_LEFT);
         $ccInfo['expirationYear'] = "20" . rand(24, 34); // Modified here
         $ccInfo['cvv'] = generateRandomCVV();
@@ -233,6 +237,7 @@ function fetchBINInfo($bin) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
     curl_close($ch);
+    
     return json_decode($response, true);
 }
 

@@ -72,13 +72,13 @@ function isUserSpamming($userId, $cooldownInSeconds = 10) {
 // ... (your existing code)
 
 // Example usage:
-$userId = "6716561862"; // Replace with the actual user ID
-if (isUserSpamming($userId)) {
-    // Handle spam behavior, such as ignoring the request
-    // or sending a warning to the user
-    send_reply($chatId, $message_id, $keyboard, "Please wait before making another request.");
-    exit; // Exit the script or perform appropriate action
-}
+// $userId = "6716561862"; // Replace with the actual user ID
+// if (isUserSpamming($userId)) {
+//     // Handle spam behavior, such as ignoring the request
+//     // or sending a warning to the user
+//     send_reply($chatId, $message_id, $keyboard, "Please wait before making another request.");
+//     exit; // Exit the script or perform appropriate action
+// }
 }
 
 // ... (continue with your existing code)
