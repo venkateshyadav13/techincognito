@@ -48,7 +48,7 @@ if (strpos($text, "/http") === 0) {
     curl_setopt($ch, CURLOPT_POST, 1);
     $post = array(
       'chat_id' => $chat_id,
-      'caption' => "*Proxy type:* `HTTPS` ✅\n⌬ *Country:* `All`\n⌬ *Timeout:* `5000`\n⌬ *Total proxy count:* `$amount`\n⌬ *Last Updated:* `$last_updated`\n---------------------------\n*Uploaded by @hackedworld69 *",
+      'caption' => "*Proxy type:* `HTTPS` ✅\n⌬ *Country:* `All`\n⌬ *Timeout:* `5000`\n⌬ *Total proxy count:* `$amount`\n⌬ *Last Updated:* `$last_updated`\n---------------------------\n*Uploaded by @venkypanda82 *",
       'parse_mode' => "markdown",
       'reply_to_message_id'=> $message_id,
       'document' => new CURLFile(realpath('fresh_http.txt'))
@@ -105,7 +105,7 @@ if (strpos($text, "/socks4") === 0){
       curl_setopt($ch, CURLOPT_POST, 1);
       $post = array(
         'chat_id' => $chat_id,
-        'caption' => "*Proxy type:* `SOCKS4` ✅\n⌬ *Country:* `All`\n⌬ *Timeout:* `5000`\n⌬ *Total proxy count:* `$amount`\n⌬ *Last Updated:* `$last_updated`\n---------------------------\n*Uploaded by @hackedworld69 *",
+        'caption' => "*Proxy type:* `SOCKS4` ✅\n⌬ *Country:* `All`\n⌬ *Timeout:* `5000`\n⌬ *Total proxy count:* `$amount`\n⌬ *Last Updated:* `$last_updated`\n---------------------------\n*Uploaded by @venkypanda82 *",
         'parse_mode' => "markdown",
         "reply_to_message_id"=> $message_id,
         'document' => new CURLFile(realpath('fresh_socks4.txt'))
