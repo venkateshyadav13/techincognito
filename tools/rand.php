@@ -20,6 +20,7 @@ if (preg_match('/^(\/fake|\.fake|!fake)/', $text)) {
     // $email1 = $matches1;
     preg_match_all("(\"street\":\"(.*)\")siU", $get, $matches1);
     $street = $matches1[1][0];
+    $street1 = $matches1[1][0];
     preg_match_all("(\"city\":\"(.*)\")siU", $get, $matches1);
     $city = $matches1[1][0];
     preg_match_all("(\"state\":\"(.*)\")siU", $get, $matches1);
@@ -118,7 +119,7 @@ if (preg_match('/^(\/fake|\.fake|!fake)/', $text)) {
     $respo = urlencode("<b>Fake Address Generated ✅
   ═════════════════
  <b>NAME</b> » <code>$first $last</code>
- <b>STREET</b> » <code>$street</code>
+ <b>STREET</b> » <code>$street1</code>
  <b>CITY</b> » <code>$city</code>
  <b>STATE</b> » <code>$state1</code>
  <b>POSTAL CODE</b> » <code>$zip</code>
