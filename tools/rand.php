@@ -123,7 +123,6 @@ if (preg_match('/^(\/fake|\.fake|!fake)/', $text)) {
  <b>STATE</b> » <code>$state1</code>
  <b>POSTAL CODE</b> » <code>$zip</code>
  <b>PHONE NUMBER</b> » <code>$phone</code>
- <b>CELL</b>» <code>$cell</code>
  <b>COUNTRY</b> » <code>$con</code>
  <b>GENDER</b> » <code>$gender</code>
  <b>DOB</b> » <code>$dob</code>
