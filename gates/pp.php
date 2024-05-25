@@ -83,7 +83,7 @@ if (preg_match('/^(\/mass|\.mass|!mass)/', $text)) {
     $array = explode("\n", $cclist);
     $arraylen = count($array);
     $new_array = [];
-    foreach ($array as $key => $value) {
+    foreach ($array as $curl4) {
 
     $start_time = microtime(true);
 
@@ -339,12 +339,14 @@ curl_close($ch);
     }
 
     echo "<br>$es--$msg";
+        
 
 
     $end_time = microtime(true);
     $time = number_format($end_time - $start_time, 2);
     ////////--[Responses]--////////
-
+        
+    }
 
     bot('editMessageText', [
         'chat_id' => $chat_id,
@@ -365,5 +367,5 @@ $botu
         'parse_mode' => 'html',
         'disable_web_page_preview' => 'true'
     ]);
-}
+
 }
