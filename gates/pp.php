@@ -79,7 +79,7 @@ if (preg_match('/^(\/mass|\.mass|!mass)/', $text)) {
         $sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b> @$username 𝘠𝘖𝘜 𝘈𝘙𝘌 𝘕𝘖𝘛 𝘗𝘙𝘌𝘔𝘐𝘜𝘔 𝘜𝘚𝘌𝘙  ❌</b>", $message_id);
         exit();
     }
-    $cclist = preg_replace("/[^0-9|\n]/", "", $text);
+    $cclist = preg_replace("/[^a-zA-Z0-9]/", "", $text);
     $array = explode("\n", $cclist);
     $arraylen = count($array);
     $new_array = [];
