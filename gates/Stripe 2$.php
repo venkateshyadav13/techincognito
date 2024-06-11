@@ -71,10 +71,10 @@ $gate = "𝙎𝙏𝙍𝙄𝙋𝙀 2$";
   $text = $update["message"]["text"];
   //========WHO CAN CHECK FUNC========//
 $r = "0";
-$gcm = "/sor";
+$gcm = "/sta";
 $r = rand(0, 100);
   //=====WHO CAN CHECK FUNC END======//
-  if (preg_match('/^(\/sor|\.sor|!sor)/', $text)) {
+  if (preg_match('/^(\/sta|\.sta|!sta)/', $text)) {
       $userid = $update['message']['from']['id'];
 
     if (!checkAccess($userid)) {

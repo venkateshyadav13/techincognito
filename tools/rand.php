@@ -4,7 +4,7 @@ if (preg_match('/^(\/fake|\.fake|!fake)/', $text)) {
     $add = substr($message, 6);
     
     if(empty($add)) {
-        $m = "<b>Input valid country code Ex:</b> <code>/fake us</code>";
+        $m = "<b>𝗜𝗻𝗽𝘂𝘁 𝘃𝗮𝗹𝗶𝗱 𝗰𝗼𝘂𝗻𝘁𝗿𝘆 𝗰𝗼𝗱𝗲 𝗘𝘅:</b> <code>/rand us</code>";
         sendMessage($chatId,$m,$message_id);
         exit();
     }
@@ -115,23 +115,21 @@ if (preg_match('/^(\/fake|\.fake|!fake)/', $text)) {
     if(empty($ssn)){
     $ssn="null";
     }
-    $respo = urlencode("<b>Fake Address Generated ✅
-  ═════════════════
- <b>NAME</b> » <code>$first $last</code>
- <b>STREET</b> » <code>$street</code>
- <b>CITY</b> » <code>$city</code>
- <b>STATE</b> » <code>$state1</code>
- <b>POSTAL CODE</b> » <code>$zip</code>
- <b>PHONE NUMBER</b> » <code>$phone</code>
- <b>COUNTRY</b> » <code>$con</code>
- <b>GENDER</b> » <code>$gender</code>
- <b>DOB</b> » <code>$dob</code>
- <b>SSN</b> » <code>$ssn</code>
- <b>EMAIL</b> » <code>$email</code>
- <b>SALT</b> » <code>$salt</code>
- ═════════════════
-•├𝙍𝙀𝙌 » @$username <code>[$rank]</code>
-•├𝘿𝙀𝙑 » <code>@venkypanda82</code>    
+    $respo = urlencode("<b>𝗙𝗮𝗸𝗲 𝗔𝗱𝗱𝗿𝗲𝘀𝘀 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗼𝗿 📝 $country
+ ╔═════════════════╗
+🛣️ 𝗙𝘂𝗹𝗹 𝗡𝗮𝗺𝗲 » <code>$first $last</code>
+🙍‍♀️ 𝗚𝗲𝗻𝗱𝗲𝗿 » <code>$gender</code>
+🛣️ 𝗦𝘁𝗿𝗲𝗲𝘁 » <code>$street</code>
+🌇 𝗖𝗶𝘁𝘆/𝗧𝗼𝘄𝗻/𝗩𝗶𝗹𝗹𝗮𝗴𝗲 » <code>$city</code>
+🏠 𝗦𝘁𝗮𝘁𝗲/𝗣𝗿𝗼𝘃𝗶𝗻𝗰𝗲/𝗥𝗲𝗴𝗶𝗼𝗻 » <code>$state1</code>
+📮 𝗣𝗼𝘀𝘁𝗮𝗹 𝗖𝗼𝗱𝗲 » <code>$zip</code>
+☎️ 𝗣𝗵𝗼𝗻𝗲 𝗡𝘂𝗺𝗯𝗲𝗿 » <code>$phone</code>
+🗺️ 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 » <code>$country [$con]</code>
+📩 𝗘𝗺𝗮𝗶𝗹 » <code>$email </code>
+📝 𝗦𝗦𝗡 » <code>$ssn</code>
+╚═════════════════╝
+•├𝗥𝗲𝗾 » @$username <code>[$rank]</code>
+•├𝗗𝗲𝘃 » <code>@venkypanda82</code>    
 </b>");
     sendMessage($chatId,$respo,$message_id);}
 ?>

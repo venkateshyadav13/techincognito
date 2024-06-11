@@ -1,77 +1,79 @@
-    <?php
-    error_reporting(E_ALL);
+<?php
+
+error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 ini_set('log_errors', TRUE);
 ini_set('error_log', 'errors.log');
-    //=========RANK DETERMINE=========//
-    $currentDate = date('Y-m-d');
-        $rank = "FREE";
-        $expiryDate = "0";
+//=========RANK DETERMINE=========//
+$gate = "𝗦𝗾𝘂𝗮𝗿𝗲 𝗔𝘂𝘁𝗵";
+$currentDate = date('Y-m-d');
+$rank = "FREE";
+$expiryDate = "0";
 
-        $paidUsers = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
-        $freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
-        $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
+$paidUsers = file('Database/Premium.txt', FILE_IGNORE_NEW_LINES);
+$freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
+$owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
-        if(in_array($userId, $owners)) {
-            $rank = "OWNER";
-           $expiryDate = "UNTIL DEAD"; 
-        } else { 
-            foreach ($paidUsers as $index => $line) {
-                list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
-                if ($userIdFromFile == $userId) {
-                    if ($userExpiryDate < $currentDate) {
-                        unset($paidUsers[$index]); //
-                        file_put_contents('Database/paid.txt', implode("\n", $paidUsers));
-                        $freeUsers[] = $userId; // add to free users list
-                        file_put_contents('Database/free.txt', implode("\n", $freeUsers));
-                    } else    $currentDate = date('Y-m-d');
-        $rank = "FREE";
-        $expiryDate = "0";
+if (in_array($userId, $owners)) {
+    $rank = "OWNER";
+    $expiryDate = "UNTIL DEAD";
+} else {
+    foreach ($paidUsers as $index => $line) {
+        list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
+        if ($userIdFromFile == $userId) {
+            if ($userExpiryDate < $currentDate) {
+                unset($paidUsers[$index]); //
+                file_put_contents('Database/Premium.txt', implode("\n", $paidUsers));
+                $freeUsers[] = $userId; // add to free users list
+                file_put_contents('Database/free.txt', implode("\n", $freeUsers));
+            } else    $currentDate = date('Y-m-d');
+            $rank = "FREE";
+            $expiryDate = "0";
 
-        $paidUsers = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
-        $freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
-        $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
+            $paidUsers = file('Database/Premium.txt', FILE_IGNORE_NEW_LINES);
+            $freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
+            $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
-        if(in_array($userId, $owners)) {
-            $rank = "OWNER";
-           $expiryDate = "UNTIL DEAD"; 
-        } else {
-            foreach ($paidUsers as $index => $line) {
-                list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
-                if ($userIdFromFile == $userId) {
-                    if ($userExpiryDate < $currentDate) {
-                        unset($paidUsers[$index]); 
-                        file_put_contents('Database/paid.txt', implode("\n", $paidUsers));
-                        $freeUsers[] = $userId; 
-                        file_put_contents('Database/free.txt', implode("\n", $freeUsers));
-                    } else {
-                        $rank = "PAID";
-                        $expiryDate = $userExpiryDate;
+            if (in_array($userId, $owners)) {
+                $rank = "OWNER";
+                $expiryDate = "UNTIL DEAD";
+            } else {
+                foreach ($paidUsers as $index => $line) {
+                    list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
+                    if ($userIdFromFile == $userId) {
+                        if ($userExpiryDate < $currentDate) {
+                            unset($paidUsers[$index]);
+                            file_put_contents('Database/Premium.txt', implode("\n", $paidUsers));
+                            $freeUsers[] = $userId;
+                            file_put_contents('Database/free.txt', implode("\n", $freeUsers));
+                        } else {
+                            $rank = "Premium";
+                            $expiryDate = $userExpiryDate;
+                        }
                     }
                 }
-            }
-        } {
-                        $rank = "PAID";
-                        $expiryDate = $userExpiryDate;
-                    }
-                }
+            } {
+                $rank = "Premium";
+                $expiryDate = $userExpiryDate;
             }
         }
+    }
+}
 
     //=======RANK DETERMINE END=========//
     $update = json_decode(file_get_contents("php://input"), TRUE);
     $text = $update["message"]["text"];
     //========WHO CAN CHECK FUNC========//
-   $r = "0";
-$gcm = "/sq";
-$r = rand(0, 100);
+    $r = "112";
+
+    $r = rand(112, 199);
     //=====WHO CAN CHECK FUNC END======//
     if (preg_match('/^(\/sq|\.sq|!sq)/', $text)) {
         $userid = $update['message']['from']['id'];
 
         if (!checkAccess($userid)) {
-            $sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b> @$username 𝘠𝘖𝘜 𝘈𝘙𝘌 𝘕𝘖𝘛 𝘗𝘙𝘌𝘔𝘐𝘜𝘔 𝘜𝘚𝘌𝘙  ❌</b>", $message_id);
+            $sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b> @$username You're not Premium user❌</b>", $message_id);
           exit();
         }
     $start_time = microtime(true);
@@ -82,7 +84,7 @@ $r = rand(0, 100);
       $message = substr($message, 4);
       $messageidtoedit1 = bot('sendmessage',[
           'chat_id'=>$chat_id,
-          'text'=>"<b>Wait for Result...⏳</b>",
+          'text'=>"<b>↯ 🆁🅴🆅🅸🅴🆆🅸🅽🅶 🆈🅾🆄'🆁🅴 🆁🅴🆀🆄🅴🆂🆃 ↯</b>",
           'parse_mode'=>'html',
           'reply_to_message_id'=> $message_id
       ]);
@@ -97,7 +99,7 @@ $r = rand(0, 100);
           bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"!𝙒𝙍𝙊𝙉𝙂 𝙁𝙊𝙍𝙈𝘼𝙏!%0A𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>/chk cc|mm|yy|cvv</code>• 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 <code> 𝙎𝙌𝙐𝘼𝙍𝙀 𝘼𝙐𝙏𝙃</code>",
+                  'text'=>"Wrong Format!\n ⚠️• 𝘚𝘦𝘯𝘥 <code>/sq cc|mm|yy|cvv</code>• 𝘎𝘢𝘵𝘦𝘸𝘢𝘺 >> $gate",
                   'parse_mode'=>'html',
                   'disable_web_page_preview'=>'true'
                   ]);
@@ -113,35 +115,50 @@ $r = rand(0, 100);
       //------------Card info------------//
       $lista = ''.$cc.'|'.$mes.'|'.$an.'|'.$cvv.'';
       $ch = curl_init();
-
-      $bin = substr($cc, 0, 6);
-
-      curl_setopt($ch, CURLOPT_URL, 'https://binlist.io/lookup/' . $bin . '/');
+      curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
+      curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+      'Host: lookup.binlist.net',
+      'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
       curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-      $bindata = curl_exec($ch);
-      $binna = json_decode($bindata, true);
-      $brand = $binna['scheme'];
-      $country = $binna['country']['name'];
-      $alpha2 = $binna['country']['alpha2'];
-      $emoji = $binna['country']['emoji'];
-      $type = $binna['type'];
-      $category = $binna['category'];
-      $bank = $binna['bank']['name'];
-      $url = $binna['bank']['url'];
-      $phone = $binna['bank']['phone'];
+      curl_setopt($ch, CURLOPT_POSTFIELDS, 'bin='.$bin.'');
+      $fim = curl_exec($ch);
+      $bank = GetStr($fim, '"bank":{"name":"', '"');
+      $name = strtoupper(GetStr($fim, '"name":"', '"'));
+      $brand = strtoupper(GetStr($fim, '"brand":"', '"'));
+      $country = strtoupper(GetStr($fim, '"country":{"name":"', '"'));
+      $scheme = strtoupper(GetStr($fim, '"scheme":"', '"'));
+      $emoji = GetStr($fim, '"emoji":"', '"');
+        if(strpos($fim, '"type":"credit"') !== false){
+              $bin = 'Card Declined';
+              }else{
+              $bin = 'Your card was declined.';
+              };        
+         //IF BIN ARE NOT AVAILABLE ----//
+          if (empty($scheme)) {
+              $scheme = "N/A";
+          }
+          if (empty($type)) {
+              $type = "N/A";
+          }
+          if (empty($brand)) {
+              $brand = "N/A";
+          }
+          if (empty($bank)) {
+              $bank = "N/A";
+          }
+          if (empty($name)) {
+              $name = "N/A";
+          }
+          if (empty($emoji)) {
+              $emoji = "N/A";
+          }
+          if (empty($currency)) {
+              $currency = "N/A";
+          }
       curl_close($ch);
-
-      $bank = "$bank";
-      $country = "$country $emoji ";
-      $bin = "$bin - ($alpha2) -[$emoji] ";
-      $bininfo = "$type - $brand - $category";
-      $url = "$url";
-      $type = strtoupper($type);
-
-      $bin = "Card Declined";
       //------------Card info------------//
 
       # -------------------- [1 REQ] -------------------#
@@ -177,18 +194,18 @@ $r = rand(0, 100);
               bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"𝘼𝙋𝙋𝙍𝙊𝙑𝙀𝘿 ✅
+                  'text'=>"𝗔𝗽𝗽𝗿𝗼𝘃𝗲𝗱 ✅
 
-𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
-𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ <code>Square Auth</code>
-𝙍𝙀𝙎𝙋𝙊𝙉𝙎𝙀 ↯ <code>Approved 🟢</code>
+𝐂𝐚𝐫𝐝 ↯ <code>$lista</code>
+𝐆𝐚𝐭𝐞𝐰𝐚𝐲 ↯ <code>Square Auth</code>
+𝐑𝐞𝐩𝐨𝐬𝐞 ↯ <code>Approved 🟢</code>
 
-𝘽𝙄𝙉 𝙄𝙉𝙁𝙊 ↯ <code>$type - $brand - $scheme</code> 
-𝘽𝘼𝙉𝙆 ↯ <code>$bank</code>
-𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ <code>$name $emoji</code>
+𝐁𝐢𝐧 𝐈𝐧𝐟𝐨 ↯ <code>$type - $brand - $scheme</code> 
+𝐁𝐚𝐧𝐤 ↯ <code>$bank</code>
+𝐂𝐨𝐮𝐧𝐭𝐫𝐲 ↯ <code>$name $emoji</code>
 
-𝙏𝙄𝙈𝙀 ↯ <code>$time Seconds</code>
-𝘽𝙊𝙏 𝙊𝙒𝙉𝙀𝙍 ↯ @CARDIBSET_XD",
+𝐓𝐢𝐦𝐞 ↯ <code>$time Seconds</code>
+$botu",
                   'parse_mode'=>'html',
                   'disable_web_page_preview'=>'true'
                   ]);
@@ -197,18 +214,18 @@ $r = rand(0, 100);
               bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"𝘿𝙀𝘾𝙇𝙄𝙉𝙀𝘿 ❌
+                  'text'=>"𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱 ❌
 
-𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
-𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ <code>Square Auth</code>
-𝙍𝙀𝙎𝙋𝙊𝙉𝙎𝙀  ↯ <code>$msg $bin 🔴</code>
+𝐂𝐚𝐫𝐝 ↯ <code>$lista</code>
+𝐆𝐚𝐭𝐞𝐰𝐚𝐲 ↯ $gate
+𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐞 ↯ <code>$msg $bin 🔴</code>
 
-𝘽𝙄𝙉 𝙄𝙉𝙁𝙊 ↯ <code>$type - $brand - $scheme</code> 
-𝘽𝘼𝙉𝙆 ↯ <code>$bank</code>
-𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ <code>$name $emoji</code>
+𝐁𝐢𝐧 𝐈𝐧𝐟𝐨 ↯ <code>$type - $brand - $scheme</code> 
+𝐁𝐚𝐧𝐤 ↯ <code>$bank</code>
+𝐂𝐨𝐮𝐧𝐭𝐫𝐲 ↯ <code>$name $emoji</code>
 
-𝙏𝙄𝙈𝙀 ↯ <code>$time Seconds</code>
-𝘽𝙊𝙏 𝙊𝙒𝙉𝙀𝙍 ↯ @CARDIBSET_XD",
+𝐓𝐢𝐦𝐞 ↯ <code>$time Seconds</code>
+$botu",
                   'parse_mode'=>'html',
                   'disable_web_page_preview'=>'true'
                   ]);
@@ -217,18 +234,18 @@ $r = rand(0, 100);
               bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"𝘿𝙀𝘾𝙇𝙄𝙉𝙀𝘿  ❌
+                  'text'=>"𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱 ❌
 
-𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
-𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ <code>Square Auth</code>
-𝙍𝙀𝙎𝙋𝙊𝙉𝙎𝙀 ↯ <code>$bin 🔴</code>
+𝐂𝐚𝐫𝐝 ↯ <code>$lista</code>
+𝐆𝐚𝐭𝐞𝐰𝐚𝐲 ↯ $gate
+𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐞 ↯ <code>$msg $bin 🔴</code>
 
-𝘽𝙄𝙉 𝙄𝙉𝙁𝙊↯ <code>$type - $brand - $scheme</code> 
-𝘽𝘼𝙉𝙆 ↯ <code>$bank</code>
-𝘾𝙊𝙐𝙉𝙏𝙍𝙔 ↯ <code>$name $emoji</code>
+𝐁𝐢𝐧 𝐈𝐧𝐟𝐨 ↯ <code>$type - $brand - $scheme</code> 
+𝐁𝐚𝐧𝐤 ↯ <code>$bank</code>
+𝐂𝐨𝐮𝐧𝐭𝐫𝐲 ↯ <code>$name $emoji</code>
 
-𝙏𝙄𝙈𝙀 ↯ <code>$time Seconds</code>
-𝘽𝙊𝙏 𝙊𝙒𝙉𝙀𝙍  ↯ @CARDIBSET_XD",
+𝐓𝐢𝐦𝐞 ↯ <code>$time Seconds</code>
+$botu",
                   'parse_mode'=>'html',
                   'disable_web_page_preview'=>'true'
                   ]);

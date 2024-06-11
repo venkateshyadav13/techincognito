@@ -22,9 +22,10 @@ if (isset($update['message']['text'])) {
             $freeUserCount = getUsersCount('Database/free.txt');
             $paidUserCount = getUsersCount('Database/paid.txt');
             $banUserCount = getUsersCount('Database/banned.txt');
-            $response = "<b>[×] Total users: {$freeUserCount}%0A[×] Paid users: {$paidUserCount}%0A[×] Banned users: {$banUserCount}%0A%0A[×] Bot by: @venkypanda82 </b>";
+            $response = "<b>[×] 𝗧𝗼𝘁𝗮𝗹 𝘂𝘀𝗲𝗿𝘀: {$freeUserCount}%0A[×] Paid users: {$paidUserCount}%0A[×] Banned users: {$banUserCount}%0A%0A[×] Bot by: @venkypanda82 </b>";
         } else {
-            $response = "<b>𝙊𝙊𝙋𝙎! 𝙔𝙊𝙐 𝘼𝙍𝙀 𝙉𝙊𝙏 𝘼𝙉 𝘼𝘿𝙈𝙄𝙉  ❌</b>";
+            $response = "<b>𝗛𝗮𝗵𝗮! 𝗗𝗼𝗻'𝘁 𝗯𝗲 𝗢𝘃𝗲𝗿 𝗦𝗺𝗮𝗿𝘁 .
+                            𝗬𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝗮𝗻 𝗮𝗱𝗺𝗶𝗻❌</b>";
         }
         sendMessage($chat_id, $response, $message_id);
     }

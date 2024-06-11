@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('log_errors', TRUE);
 ini_set('error_log', 'errors.log');
 //=========RANK DETERMINE=========//
-$gate = "𝙋𝘼𝙔𝙋𝘼𝙇 0.01$";
+$gate = "𝗣𝗮𝘆𝗽𝗮𝗹 𝟬.𝟬𝟭$";
 $currentDate = date('Y-m-d');
 $rank = "FREE";
 $expiryDate = "0";
@@ -86,7 +86,7 @@ if (preg_match('/^(\/pp|\.pp|!pp)/', $text)) {
     $message = substr($message, 4);
     $messageidtoedit1 = bot('sendmessage', [
         'chat_id' => $chat_id,
-        'text' => "<b>𝙍𝙀𝘼𝘿𝙄𝙉𝙂 𝙐𝙍 𝙍𝙀𝙌𝙐𝙀𝙎𝙏 ✅</b>",
+        'text' => "<b>↯ 🆁🅴🆅🅸🅴🆆🅸🅽🅶 🆈🅾🆄'🆁🅴 🆁🅴🆀🆄🅴🆂🆃 ↯</b>",
         'parse_mode' => 'html',
         'reply_to_message_id' => $message_id
     ]);
@@ -101,7 +101,7 @@ if (preg_match('/^(\/pp|\.pp|!pp)/', $text)) {
         bot('editMessageText', [
             'chat_id' => $chat_id,
             'message_id' => $messageidtoedit,
-            'text' => "!𝙒𝙍𝙊𝙉𝙂 𝙁𝙊𝙍𝙈𝘼𝙏!                           𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>$gcm cc|mm|yy|cvv</code>\n𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - <b>$gate</b>",
+            'text' => "𝗪𝗿𝗼𝗻𝗴 𝗙𝗼𝗿𝗺𝗮𝘁!                𝙏𝙚𝙭𝙩 𝙎𝙝𝙤𝙪𝙡𝙙 𝙊𝙣𝙡𝙮 𝘾𝙤𝙣𝙩𝙖𝙞𝙣 - <code>$gcm cc|mm|yy|cvv</code>\n𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - <b>$gate</b>",
             'parse_mode' => 'html',
             'disable_web_page_preview' => 'true'
         ]);
@@ -158,7 +158,7 @@ if (preg_match('/^(\/pp|\.pp|!pp)/', $text)) {
   bot('editMessageText', [
           'chat_id' => $chat_id,
           'message_id' => $messageidtoedit,
-          'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■□□□
+          'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 𝟙𝟘%
 ⋙ ════════ ⋆★⋆ ════════ ⋘
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -225,8 +225,6 @@ if (preg_match('/^(\/pp|\.pp|!pp)/', $text)) {
         $city = "Bell";
     };
 
-
-
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://www.paypal.com/smart/buttons?locale.lang=en&locale.country=US&style.label=&style.layout=vertical&style.color=gold&style.shape=&style.tagline=false&style.height=40&style.menuPlacement=below&sdkVersion=5.0.344&components.0=buttons&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWwuY29tL3Nkay9qcz9jbGllbnQtaWQ9QWFNekk4d0VQOURIcFBHOXd0UWRrSWsxdkxwMEJ4S2dtM0RNMi05Vm5KaGhvamFJTVlsNXB1OU5JUjkydWY1blVBYzdoSTI5a1E3akV3SF8mY3VycmVuY3k9TVhOJmxvY2FsZT1lbl9VUyIsImF0dHJzIjp7ImRhdGEtdWlkIjoidWlkX21lcXZmdmR0cGh6YmR6ZmlzZXd5d2ZycWNjeXB6cyJ9fQ&clientID=AaMzI8wEP9DHpPG9wtQdkIk1vLp0BxKgm3DM2-9VnJhhojaIMYl5pu9NIR92uf5nUAc7hI29kQ7jEwH_&sdkCorrelationID=0aab5698a8427&storageID=uid_250b1d7213_mti6ndq6ntc&sessionID=uid_dbc1e53ffd_mti6ndq6ntc&buttonSessionID=uid_1c583f9aa0_mti6ndc6ntk&env=production&buttonSize=large&fundingEligibility=eyJwYXlwYWwiOnsiZWxpZ2libGUiOnRydWUsInZhdWx0YWJsZSI6ZmFsc2V9LCJwYXlsYXRlciI6eyJlbGlnaWJsZSI6ZmFsc2UsInByb2R1Y3RzIjp7InBheUluMyI6eyJlbGlnaWJsZSI6ZmFsc2UsInZhcmlhbnQiOm51bGx9LCJwYXlJbjQiOnsiZWxpZ2libGUiOmZhbHNlLCJ2YXJpYW50IjpudWxsfSwicGF5bGF0ZXIiOnsiZWxpZ2libGUiOmZhbHNlLCJ2YXJpYW50IjpudWxsfX19LCJjYXJkIjp7ImVsaWdpYmxlIjp0cnVlLCJicmFuZGVkIjp0cnVlLCJpbnN0YWxsbWVudHMiOmZhbHNlLCJ2ZW5kb3JzIjp7InZpc2EiOnsiZWxpZ2libGUiOnRydWUsInZhdWx0YWJsZSI6dHJ1ZX0sIm1hc3RlcmNhcmQiOnsiZWxpZ2libGUiOnRydWUsInZhdWx0YWJsZSI6dHJ1ZX0sImFtZXgiOnsiZWxpZ2libGUiOnRydWUsInZhdWx0YWJsZSI6dHJ1ZX0sImRpc2NvdmVyIjp7ImVsaWdpYmxlIjpmYWxzZSwidmF1bHRhYmxlIjp0cnVlfSwiaGlwZXIiOnsiZWxpZ2libGUiOmZhbHNlLCJ2YXVsdGFibGUiOmZhbHNlfSwiZWxvIjp7ImVsaWdpYmxlIjpmYWxzZSwidmF1bHRhYmxlIjp0cnVlfSwiamNiIjp7ImVsaWdpYmxlIjpmYWxzZSwidmF1bHRhYmxlIjp0cnVlfX0sImd1ZXN0RW5hYmxlZCI6ZmFsc2V9LCJ2ZW5tbyI6eyJlbGlnaWJsZSI6ZmFsc2V9LCJpdGF1Ijp7ImVsaWdpYmxlIjpmYWxzZX0sImNyZWRpdCI6eyJlbGlnaWJsZSI6ZmFsc2V9LCJhcHBsZXBheSI6eyJlbGlnaWJsZSI6ZmFsc2V9LCJzZXBhIjp7ImVsaWdpYmxlIjpmYWxzZX0sImlkZWFsIjp7ImVsaWdpYmxlIjpmYWxzZX0sImJhbmNvbnRhY3QiOnsiZWxpZ2libGUiOmZhbHNlfSwiZ2lyb3BheSI6eyJlbGlnaWJsZSI6ZmFsc2V9LCJlcHMiOnsiZWxpZ2libGUiOmZhbHNlfSwic29mb3J0Ijp7ImVsaWdpYmxlIjpmYWxzZX0sIm15YmFuayI6eyJlbGlnaWJsZSI6ZmFsc2V9LCJwMjQiOnsiZWxpZ2libGUiOmZhbHNlfSwiemltcGxlciI6eyJlbGlnaWJsZSI6ZmFsc2V9LCJ3ZWNoYXRwYXkiOnsiZWxpZ2libGUiOmZhbHNlfSwicGF5dSI6eyJlbGlnaWJsZSI6ZmFsc2V9LCJibGlrIjp7ImVsaWdpYmxlIjpmYWxzZX0sInRydXN0bHkiOnsiZWxpZ2libGUiOmZhbHNlfSwib3h4byI6eyJlbGlnaWJsZSI6ZmFsc2V9LCJtYXhpbWEiOnsiZWxpZ2libGUiOmZhbHNlfSwiYm9sZXRvIjp7ImVsaWdpYmxlIjpmYWxzZX0sImJvbGV0b2JhbmNhcmlvIjp7ImVsaWdpYmxlIjpmYWxzZX0sIm1lcmNhZG9wYWdvIjp7ImVsaWdpYmxlIjpmYWxzZX0sIm11bHRpYmFuY28iOnsiZWxpZ2libGUiOmZhbHNlfSwic2F0aXNwYXkiOnsiZWxpZ2libGUiOmZhbHNlfX0&platform=desktop&experiment.enableVenmo=false&experiment.enableVenmoAppLabel=false&flow=purchase&currency=MXN&intent=capture&commit=true&vault=false&renderedButtons.0=paypal&renderedButtons.1=card&debug=false&applePaySupport=false&supportsPopups=true&supportedNativeBrowser=false&experience=&allowBillingPayments=true');
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -254,7 +252,7 @@ if (preg_match('/^(\/pp|\.pp|!pp)/', $text)) {
   bot('editMessageText', [
         'chat_id' => $chat_id,
         'message_id' => $messageidtoedit,
-        'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■□□
+        'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 5𝟘%
 ⋙ ════════ ⋆★⋆ ════════ ⋘
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -310,7 +308,7 @@ if (preg_match('/^(\/pp|\.pp|!pp)/', $text)) {
   bot('editMessageText', [
         'chat_id' => $chat_id,
         'message_id' => $messageidtoedit,
-        'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■□
+        'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 8𝟘%
 ⋙ ════════ ⋆★⋆ ════════ ⋘
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -365,7 +363,7 @@ if (preg_match('/^(\/pp|\.pp|!pp)/', $text)) {
 bot('editMessageText', [
         'chat_id' => $chat_id,
         'message_id' => $messageidtoedit,
-        'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■■
+        'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 𝟙𝟘𝟘% 🟩
 ⋙ ════════ ⋆★⋆ ════════ ⋘
 
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>

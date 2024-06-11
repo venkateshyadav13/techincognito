@@ -3,7 +3,7 @@
 function sendMessageWithInlineKeyboard($chatId, $response, $messageId = null) {
     $inline_keyboard = array(
         array(
-            array("text" => "𝑮𝒆𝒏𝒆𝒓𝒂𝒕𝒆 𝑨𝒈𝒂𝒊𝒏", "callback_data" => "/gen")
+            array("text" => "Generate Gen mass ", "callback_data" => "/gen")
         )
     );
 
@@ -31,7 +31,7 @@ function sendMessageWithInlineKeyboard($chatId, $response, $messageId = null) {
 function editMessage($chatId, $messageId, $text) {
     $inline_keyboard = array(
         array(
-            array("text" => "𝑮𝒆𝒏𝒆𝒓𝒂𝒕𝒆 𝑨𝒈𝒂𝒊𝒏", "callback_data" => "/gen")
+            array("text" => "𝑮𝒆𝒏𝒆𝒓𝒂𝒕𝒆 ", "callback_data" => "/gen")
         )
     );
     
@@ -104,7 +104,7 @@ function generateCC($input, $quantity = 20) {
         $ccInfo = parseCCFormat($input);
         $cc = generateCCNumber($ccInfo['ccNumber'], $input); // Pass the BIN as a prefix
         $mm = $ccInfo['expirationMonth'] ?? str_pad(rand(1, 12), 2, "0", STR_PAD_LEFT);
-        $yy = $ccInfo['expirationYear'] ?? "20" . rand(24, 34);
+        $yy = $ccInfo['expirationYear'] ?? "20" . rand(23, 33);
         $cvv = $ccInfo['cvv'] ?? generateRandomCVV();
       
         $cardsResponse[] = [
@@ -116,11 +116,8 @@ function generateCC($input, $quantity = 20) {
     }
 
     // Generate the response string
-$response = "┏━━━━━━━⍟
-┃ 𝗖𝗖 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 ✅
-┗━━━━━━━━━━━━⊛
-⊙ 𝐁𝐢𝐧 ↯ <code>$input</code>
-⊙ 𝐀𝐦𝐨𝐮𝐧𝐭 ↯ <b>$quantity</b>\n\n━━━━━━━━━━━━━━━━━━━━━\n";
+$response = "𝐁𝐢𝐧 ↯ <code>$input</code>
+𝐀𝐦𝐨𝐮𝐧𝐭 ↯ <b>$quantity</b>\n\n- - - - - - - - - - - - - - - - - - -\n";
 
 foreach ($cardsResponse as $card) {
     // Access individual elements of each credit card and append to the response string
@@ -138,10 +135,10 @@ $brand = strtoupper($binInfo['scheme'] ?? '');
 $type = strtoupper($binInfo['type'] ?? '');
 $bank = isset($binInfo['bank']['name']) ? strtoupper($binInfo['bank']['name']) : '';
 
-$response .= "━━━━━━━━━━━━━━━━━━━━━\n\n";
+$response .= "- - - - - - - - - - - - - - - - - - -\n\n𝐁𝐢𝐧 𝐈𝐧𝐟𝐨 ↯ <code>$type - $brand</code>\n𝐁𝐚𝐧𝐤 ↯ <code>$bank</code>\n𝐂𝐨𝐮𝐧𝐭𝐫𝐲 ↯ <code>$name</code>\n";
 
 // Append a custom footer to the response
-$response .= "𝘽𝙊𝙏 𝙊𝙒𝙉𝙀𝙍 ↯ @venkypanda82";
+$response .= "\n𝐁𝐨𝐭 𝐎𝐰𝐧𝐞𝐫 ↯ <code>@venkypanda82</code>";
 
     return $response;
 }
@@ -207,7 +204,7 @@ function parseCCFormat($input) {
             }
 
             if (strpos($ccInfo['expirationYear'], 'x') !== false) {
-                $ccInfo['expirationYear'] = "20" . rand(24, 34); // Modified here
+                $ccInfo['expirationYear'] = "20" . rand(23, 33); // Modified here
             }
         }
         return $ccInfo;
@@ -215,7 +212,7 @@ function parseCCFormat($input) {
         $ccInfo = [];
         $ccInfo['ccNumber'] = str_replace('x', null, $input);
         $ccInfo['expirationMonth'] = str_pad(rand(1, 12), 2, "0", STR_PAD_LEFT);
-        $ccInfo['expirationYear'] = "20" . rand(24, 34); // Modified here
+        $ccInfo['expirationYear'] = "20" . rand(23, 33); // Modified here
         $ccInfo['cvv'] = generateRandomCVV();
         return $ccInfo;
     }
@@ -265,7 +262,7 @@ if (isset($update['message'])) {
 
     if ($data == '/gen') {
         $input = getLastUsedBin($userId);  // Get the last bin used by the user
-        $response = generateCC($input, 10);
+        $response = generateCC($input, 50);
         editMessage($chat_id, $message_id, $response);
     }
 }

@@ -14,7 +14,8 @@ if ((strpos($message, "/code") === 0) || (strpos($message, "!code") === 0) || (s
     $owners = file_get_contents('Database/owner.txt');
     $admins = explode("\n", $owners);
     if (!in_array($userId, $admins)) {
-        sendMessage($chatId, "⚠️ 𝗬𝗼𝘂 𝗮𝗿𝗲 𝗡𝗼𝘁 𝗮𝗻 𝗔𝗗𝗠𝗜𝗡 !", $messageId);
+        sendMessage($chatId, "𝗗𝗼𝗻'𝘁 𝗯𝗲 𝗢𝘃𝗲𝗿 𝗦𝗺𝗮𝗿𝘁.\n
+                             ⚠️ 𝗬𝗼𝘂 𝗮𝗿𝗲 𝗡𝗼𝘁 𝗮𝗻 𝗔𝗗𝗠𝗜𝗡 !", $messageId);
     } else {
         $command = substr($message, 6);
         $command = clean($command);
@@ -51,10 +52,10 @@ if ((strpos($message, "/code") === 0) || (strpos($message, "!code") === 0) || (s
                 "┃𝐊𝐞𝐲 𝐂𝐫𝐞𝐚𝐭𝐞𝐝 ✅\n" .
                 "┗━━━━━━━━━━━⊛\n\n" .
                 "✿├𝙐𝙨𝙖𝙜𝙚 /redeem\n" .
-                "✿├𝑲𝒆𝒚: $formattedCode\n" .
+                "✿├𝑲𝒆𝒚: /redeem $formattedCode\n" .
                 "✿├𝑫𝒂𝒚𝒔: $expiryDays\n" .
-                "✿├𝗘𝘅𝗽𝗶𝗿𝗲𝘀 𝗼𝗻 $expiryDate\n" .
-                "🜲 𝑹𝒂𝒏𝒌: PREMIUM "
+                "✿├𝗘𝘅𝗽𝗶𝗿𝗲𝘀 𝗼𝗻 : $expiryDate\n" .
+                "🜲 𝑹𝒂𝒏𝒌: 🅿🆁🅴🅼🅸🆄🅼 "
             );
             sendMessage($chatId, $messageToSend, $messageId);
         }

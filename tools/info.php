@@ -21,11 +21,11 @@ function getUserProfilePhoto($userId) {
 
 
 //============function end==========//
-if (preg_match('/^(\/info|\.info|!info)/', $text)) {
+if (preg_match('/^(\/id|\.id|!info)/', $text)) {
 
     $photoId = getUserProfilePhoto($userId);
 
-    $m = " 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉 ✅%0A━━━━━━━━━━━━━%0A<b>× 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 - @$username%0A× 𝙐𝙎𝘼𝙂𝙀 𝙉𝘼𝙈𝙀  ↯ $firstname%0A× 𝙏𝙂 𝙄𝘿  ↯ <code>$userId</code>%0A× 𝘾𝙃𝘼𝙏 𝙄𝘿 ↯ <code>$chatId</code>%0A× RANK ↯ $rank%0A× 𝙋𝙇𝘼𝙉 𝙀𝙓𝙋𝙄𝙍𝙔 ↯ $expiryDate</b>%0A━━━━━━━━━━━━━%0A<b>|×| DEV - @venkypanda82</b>";
+    $m = "<b>[火] 𝗨𝘀𝗲𝗿 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 %0A╔═════════════════╗%0A•├User[𝗡𝗔𝗠𝗘] » @$username%0A•├User[𝗜𝗗] » <code>$userId</code>%0A•├𝗡𝗮𝗺𝗲[𝗧𝗚] » $firstname%0A•├𝗨𝘀𝗲𝗿[𝗥𝗔𝗡𝗞] >» <code>$rank</code%0A•├𝗨𝘀𝗲𝗿[𝗘𝘅𝗶𝗽𝗿𝗲] >» $expiryDate%0A╚═════════════════╝%0A•├𝗗𝗲𝘃 » <code>@venkypanda82</code></b>";
 
     if ($photoId) {
         sendPhotox($chatId, $photoId, $m);

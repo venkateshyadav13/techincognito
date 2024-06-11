@@ -236,7 +236,7 @@ $r = rand(0, 100);
 
 
     sleep(1);
-        edit_sent_message($chatId, $sent_message_id, "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■□□□
+        edit_sent_message($chatId, $sent_message_id, "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 1𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -284,7 +284,7 @@ $r = rand(0, 100);
   curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
     sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■□□
+    edit_sent_message($chatId, $sent_message_id, "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 5𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -330,7 +330,7 @@ $r = rand(0, 100);
     );
 
 sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■□
+    edit_sent_message($chatId, $sent_message_id, "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 8𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -361,7 +361,7 @@ sleep(1);
 
 
     sleep(1);
-        edit_sent_message($chatId, $sent_message_id, "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■■
+        edit_sent_message($chatId, $sent_message_id, "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 𝟙𝟘𝟘% 🟩
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate

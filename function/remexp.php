@@ -7,7 +7,8 @@ if (strpos($message, "/remexp") === 0) {
 
     // Check if the user's chat ID matches the owner's chat ID
     if ($chatId != $ownerId) {
-        sendMessage($chatId, "𝙊𝙊𝙋𝙎! 𝙔𝙊𝙐 𝘼𝙍𝙀 𝙉𝙊𝙏 𝘼𝙉 𝘼𝘿𝙈𝙄𝙉  ❌", $randomArgument);
+        sendMessage($chatId, "𝗛𝗮𝗵𝗮! 𝗗𝗼𝗻'𝘁 𝗯𝗲 𝗢𝘃𝗲𝗿 𝗦𝗺𝗮𝗿𝘁.
+                              𝗬𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝗮𝗻 𝗮𝗱𝗺𝗶𝗻  ❌", $randomArgument);
     } else {
         // The rest of your code goes here
         $lines = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
@@ -21,9 +22,9 @@ if (strpos($message, "/remexp") === 0) {
         // save the remaining (non-expired) entries back to the file
         $result = file_put_contents('Database/paid.txt', implode("\n", $lines));
         if ($result !== false) {
-            sendMessage($chatId, "All the expired users are removed successfully ✅", $randomArgument);
+            sendMessage($chatId, "𝗔𝗹𝗹 𝘁𝗵𝗲 𝗲𝘅𝗽𝗶𝗿𝗲𝗱 𝘂𝘀𝗲𝗿𝘀 𝗮𝗿𝗲 𝗿𝗲𝗺𝗼𝘃𝗲𝗱 𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 ✅", $randomArgument);
         } else {
-            sendMessage($chatId, "An error occurred ❌", $randomArgument);
+            sendMessage($chatId, "𝗔𝗻 𝗲𝗿𝗿𝗼𝗿 𝗼𝗰𝗰𝘂𝗿𝗿𝗲𝗱 ❌", $randomArgument);
         }
     }
 }

@@ -4,7 +4,7 @@ if (preg_match('/^(\/ip|\.ip|!ip)/', $text)) {
 
     $iplist = preg_replace("/[^0-9.]/", "",$message);
     if(empty($iplist)){
-      sendMessage($chatId, 'Send IP address',$mes_id);
+      sendMessage($chatId, '​𝗦𝗲𝗻𝗱 𝗜𝗣 𝗮𝗱𝗱𝗿𝗲𝘀𝘀',$mes_id);
       exit();
     }
     $array = explode("\n", $iplist);
@@ -36,17 +36,17 @@ $country = trim(strip_tags(getStr($gip,'   </tr>
         <tr>')));
 
 $message = "<b>
-[火] 𝙄𝙋 𝙁𝙍𝘼𝙐𝘿𝙍𝙄𝙎𝙆 📡
+[火] IP FraudRisk 🌩
 ━━━━━━━━━━━━━━
-•├𝙄𝙋 : <code>$array[0]</code>
-•├𝙎𝘾𝙊𝙍𝙀 : <code>$score</code>
-•├𝙍𝙄𝙎𝙆 : <code>$risk</code>
-•├𝙄𝙎𝙋 : <code>$isp</code>
-•├𝘾𝙊𝙐𝙉𝙏𝙍𝙔 : <code>$country</code>
+•├IP : <code>$array[0]</code>
+•├𝗦𝗰𝗼𝗿𝗲 : <code>$score</code>
+•├𝗥𝗶𝘀𝗸 : <code>$risk</code>
+•├ISP : <code>$isp</code>
+•├𝗖𝗼𝘂𝗻𝘁𝗿𝘆 : <code>$country</code>
 
-•├𝙍𝙀𝙌: @$username/<code>[$rank]</code>
+•├Req: @$username/<code>[$rank]</code>
 ━━━━━━━━━━━━━━
-•├𝘿𝙀𝙑: <code>@hackedworld69</code>
+•├Dev: <code>@venkypanda82</code>
 </b>";
 
 $urlEncodedMessage = urlencode($message);

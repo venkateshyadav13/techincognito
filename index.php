@@ -29,9 +29,9 @@ $username3       = ('@'.$username);
  $info            = json_encode($update, JSON_PRETTY_PRINT); 
 $emojid = '❌';
 $emojil = '✅';
-$owner = '<code>@venkypanda82</code>';
-$botu = "𝘽𝙊𝙏 𝙐𝙋𝘿𝘼𝙏𝙀𝙎 ↯ @venkypanda82";
-$bota = "<b>|×| 𝘿𝙀𝙑 ↯ @venkypanda82</b>";$eror = "<b>Error ❌</b>";
+$owner = '<code>⏤͟͟͞͞•𝄟⃝Yadav⏤͟͟͞͞•</code>';
+$botu = "𝗕𝗼𝘁 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 ↯ @venkypanda82";
+$bota = "<b>|×| 𝗗𝗲𝘃 ↯ @venkypanda82</b>";$eror = "<b>Error ❌</b>";
 
 $dd = "𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱 ❌";
 $live = "𝗔𝗽𝗽𝗿𝗼𝘃𝗲𝗱 ✅";
@@ -87,21 +87,21 @@ $callbackmessage = $update->callback_query->message->text;
 $callbackid = $update->callback_query->id;
 
 $text = $update->message->text;
-$owner = '<code>@venkypanda82</code>';
+$owner = '<code>⏤͟͟͞͞•𝄟⃝Yadav⏤͟͟͞͞•</code>';
 
 
 
 /////Cmd Back2 \\\\
 
 if ($cdata2 == "back2") {
-    $gatesText = "𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼 Techincognito. ⚠️ Buy The Plan First.";
+    $gatesText = "𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼 🆃🅴🅲🅷🅸🅽🅲🅾🅶🅽🅸🆃🅾. 乃ㄖㄒ";
 
 
     $gatesKeyboard = json_encode([
     'inline_keyboard' => [
         [
-            ['text' => '𝙂𝙖𝙩𝙚𝙬𝙖𝙮𝙨', 'callback_data' => 'gates'],
-            ['text' => '𝙏𝙤𝙤𝙡𝙨', 'callback_data' => 'herr'],
+            ['text' => '𝗚𝗮𝘁𝗲𝘄𝗮𝘆', 'callback_data' => 'gates'],
+            ['text' => '𝗧𝗼𝗼𝗹𝘀', 'callback_data' => 'herr'],
         ]
     ]
 ]);
@@ -126,29 +126,16 @@ if ($cdata2 == "back2") {
 if ($cdata2 == "buy") {
     $gatesText = "
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍
-💸 𝙎𝙐𝘽𝙎𝘾𝙍𝙄𝙋𝙏𝙄𝙊𝙉 𝙈𝙀𝙉𝙐 💸
-╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍
-× 1 𝘞𝘌𝘌𝘒  - 3$
-× 2 𝘞𝘌𝘌𝘒𝘚 - 5$
-× 3 𝘞𝘌𝘌𝘒𝘚 - 7$
+𝗡𝗼 𝗻𝗲𝗲𝗱 𝘁𝗼 𝗯𝘂𝘆 ,𝗶𝘁𝘀 𝗳𝗿𝗲𝗲 𝗳𝗼𝗿 𝗲𝘃𝗲𝗿𝘆 𝗼𝗻𝗲
+𝗝𝘂𝘀𝘁  𝗦𝗲𝗻𝗱 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 <code>CODE</code> @PersonlagreeBot 𝗧𝗵𝗶𝘀 𝗕𝗼𝘁
 ━━━━━━━━━━━━━━━━━━
-• <b>3</b> 𝘽𝙀𝙉𝙀𝙁𝙄𝙏𝙎 •
-× 𝘈𝘓𝘓 𝘎𝘈𝘛𝘌𝘚 𝘈𝘊𝘊𝘌𝘚𝘚 ✅
-× 𝘕𝘖 𝘈𝘕𝘛𝘐 𝘚𝘗𝘈𝘔 ✅
-× 24/7 𝘊𝘜𝘚𝘛𝘖𝘔𝘌𝘙 𝘊𝘈𝘙𝘌 ✅
+• 𝗕𝗲𝗻𝗲𝗳𝗶𝘁𝘀 •
+× 𝗔𝗹𝗹 𝗚𝗮𝘁𝗲𝘀 𝗔𝗰𝗰𝗲𝘀𝘀 ✅
+× 𝗡𝗼 𝗔𝗻𝘁𝗶 𝗦𝗽𝗮𝗺 ✅
+× 𝟮𝟰/𝟳 𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗖𝗮𝗿𝗲 ✅
     
 ━━━━━━━━━━━━━━━━━━
-• 𝙋𝘼𝙔𝙈𝙀𝙉𝙏 𝙈𝙀𝙏𝙃𝙊𝘿 •
-  🔸BTC - <code>Not Available</code>
-  🔸LTC - <code>Not Available</code>
-  🔸USDT - <code>Not Available</code>
-  🔸BNB - <code>Not Available</code>
-  and other Coins also <b>Accepted</b> ✅
-━━━━━━━━━━━━━━━━━━
-⚠️ 𝘕𝘰𝘵𝘦- 𝘈𝘍𝘛𝘌𝘙 𝘗𝘈𝘠𝘐𝘕𝘎 𝘊𝘓𝘐𝘊𝘒 𝘖𝘕 𝘝𝘌𝘙𝘐𝘍𝘠 𝘗𝘈𝘠𝘔𝘌𝘕𝘛 𝘉𝘜𝘛𝘛𝘖𝘕 𝘈𝘕𝘋 𝘚𝘌𝘕𝘋 𝘚𝘊𝘙𝘌𝘌𝘕𝘚𝘏𝘖𝘛 ⚠️
-⚠️ 𝘛𝘏𝘐𝘚 𝘛𝘖𝘗-𝘜𝘗s 𝘈𝘙𝘌 𝘕𝘖𝘕 𝘙𝘌𝘍𝘜𝘕𝘋𝘈𝘉𝘓𝘌 ⚠️";
-
-
+";
                                  $gatesKeyboard = json_encode([
                                  'inline_keyboard' => [
                                      [                     ['text' => '• 𝙑𝙀𝙍𝙄𝙁𝙔 𝙋𝘼𝙔𝙈𝙀𝙉𝙏 •', 'url' => 'https://t.me/pandacc82'],   ], ]
@@ -174,7 +161,7 @@ if ($cdata2 == "buy") {
 $keyboard = json_encode([
     'inline_keyboard' => [
         [
-            ['text' => "↯ 𝘽𝙐𝙔 𝘼𝘾𝘾𝙀𝙎𝙎", 'url' => "https://t.me/pandacc82"],
+            ['text' => "↯ 𝗕𝘂𝘆 𝗔𝗰𝗰𝗲𝘀𝘀", 'url' => "https://t.me/PersonlagreeBot"],
         ],
     ]
 ]);
@@ -183,20 +170,20 @@ $keyboard = json_encode([
 
 if ($cdata2 == "back") {
     // Go back to the welcome page
-    $gatesText = "<b>𖣘 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎 𖣘
+    $gatesText = "<b>𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀
 
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ 
-× 𝘾𝙃𝘼𝙍𝙂𝙀 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎 : <code>15</code>
-× 𝘼𝙐𝙏𝙃 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎 : <code>5</code>
-× 𝙏𝙊𝙏𝘼𝙇 : <code>20</code>
+ 𝗖𝗵𝗮𝗿𝗴𝗲 𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀 : 𝟭𝟮
+ 𝗔𝘂𝘁𝗵 𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀 : 𝟲
+ 𝗧𝗼𝘁𝗮𝗹 : 𝟭𝟴
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍
 
 $bota</b>";
 
     $gatesKeyboard = json_encode([
     'inline_keyboard' => [
-        [['text' => "𝘼𝙐𝙏𝙃 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎", 'callback_data' => 'premium'], ['text' => "𝘾𝙃𝘈𝙍𝙂𝙀 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎", 'callback_data' => 'free']],
-        [['text' => '𝙂𝙊 𝘽𝘼𝘾𝙆', 'callback_data' => 'back2']]
+        [['text' => "𝗔𝘂𝘁𝗵 𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀", 'callback_data' => 'premium'], ['text' => "𝗖𝗵𝗮𝗿𝗴𝗲 𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀", 'callback_data' => 'free']],
+        [['text' => '𝗚𝗼 𝗕𝗮𝗰𝗸', 'callback_data' => 'back2']]
     ]
 ]);
 
@@ -217,12 +204,12 @@ $bota</b>";
 //============GATES START===========//
 
 if ($cdata2 == "gates") {
-    $gatesText = "<b>𖣘 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎 𖣘
+    $gatesText = "<b>𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀
 
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ 
-× 𝘾𝙃𝘼𝙍𝙂𝙀 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎 : <code>15</code>
-× 𝘼𝙐𝙏𝙃 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎 : <code>5</code>
-× 𝙏𝙊𝙏𝘼𝙇 : <code>20</code>
+ 𝗖𝗵𝗮𝗿𝗴𝗲 𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀 : 𝟭𝟮
+ 𝗔𝘂𝘁𝗵 𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀 : 𝟲
+ 𝗧𝗼𝘁𝗮𝗹 : 𝟭𝟴
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍
 
 $bota</b>";
@@ -230,8 +217,8 @@ $bota</b>";
 
      $gatesKeyboard = json_encode([
     'inline_keyboard' => [
-        [['text' => "𝘼𝙐𝙏𝙃 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎", 'callback_data' => 'premium'], ['text' => "𝘾𝙃𝘼𝙍𝙂𝙀 𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎", 'callback_data' => 'free']],
-        [['text' => '𝙂𝙊 𝘽𝘼𝘾𝙆', 'callback_data' => 'back2']]
+        [['text' => "𝗔𝘂𝘁𝗵 𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀", 'callback_data' => 'premium'], ['text' => "𝗖𝗵𝗮𝗿𝗴𝗲 𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀", 'callback_data' => 'free']],
+        [['text' => '𝗚𝗼 𝗕𝗮𝗰𝗸', 'callback_data' => 'back2']]
     ]
 ]);
 
@@ -256,30 +243,30 @@ $bota</b>";
 
 $premiumButton = json_encode([
 'inline_keyboard' => [
-                                 [['text' => "⥫ 𝘽𝘼𝘾𝙆 𝙋𝘼𝙂𝙀 𝟎", 'callback_data' => 'mm'], ['text' => "𝟐 𝙉𝙀𝙓𝙏 𝙋𝘼𝙂𝙀 ⥭", 'callback_data' => 'freec']],
-                                 [['text' => '𝙃𝙊𝙈𝙀', 'callback_data' => 'gates']]
+                                 [['text' => "⥫ 𝗕𝗮𝗰𝗸 𝗣𝗮𝗴𝗲 𝟬", 'callback_data' => 'mm'], ['text' => "𝟮 𝗡𝗲𝘅𝘁 ⥭", 'callback_data' => 'freec']],
+                                 [['text' => '𝗛𝗼𝗺𝗲', 'callback_data' => 'gates']]
                              ]
 
 ]);
 
 if ($cdata2 == "free") {
-    $freeText = "𝙋𝘼𝙂𝙀 𝙉𝙊. ↯ 𝟏
+    $freeText = "𝗣𝗮𝗴𝗲 𝗡𝗼. ↯ 𝟏
    
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙋𝘼𝙔𝙋𝘼𝙇 0.01$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/pp cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝙋𝘼𝙔𝙋𝘼𝙇 0.01$</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/pp cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 15$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/str cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗦𝘁𝗿𝗶𝗽𝗲 𝟭𝟱$</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/str cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝘼𝙐𝙏𝙃𝙊𝙍𝙄𝙕𝙀 𝙉𝙀𝙏 25$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/atf cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆- 𝗦𝘁𝗿𝗶𝗽𝗲 𝗖𝗵𝗮𝗿𝗴𝗲 𝟭𝟮€</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/sec cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
 
 $bota";
@@ -301,30 +288,30 @@ $bota";
 
 $premiumcButton = json_encode([
 'inline_keyboard' => [
-                                 [['text' => "⥫ 𝘽𝘼𝘾𝙆 𝙋𝘼𝙂𝙀 𝟏", 'callback_data' => 'free'], ['text' => "𝟑 𝙉𝙀𝙓𝙏 𝙋𝘼𝙂𝙀 ⥭", 'callback_data' => 'freea']],
-                                 [['text' => '𝙃𝙊𝙈𝙀', 'callback_data' => 'gates']]
+                                 [['text' => "⥫ 𝗕𝗮𝗰𝗸 𝗣𝗮𝗴𝗲 𝟭", 'callback_data' => 'free'], ['text' => "𝟯 𝗡𝗲𝘅𝘁 ⥭", 'callback_data' => 'freea']],
+                                 [['text' => '𝗛𝗼𝗺𝗲', 'callback_data' => 'gates']]
                              ]
 
 ]);
 
 if ($cdata2 == "freec") {
-    $freeText = "𝙋𝘼𝙂𝙀 𝙉𝙊. ↯ 𝟐
+    $freeText = "𝗣𝗮𝗴𝗲 𝗡𝗼. ↯ 𝟮
    
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 5$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/sr cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅ </code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝙎𝙏𝙍𝙄𝙋𝙀 2$</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/sta cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅ </code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 5.48$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/stp cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 </code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗣𝗮𝘆𝗽𝗮𝗹 𝗠𝗮𝘀𝘀 1$</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/mpp cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 </code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝘼𝙐𝙏𝙃𝙊𝙍𝙄𝙕𝙀 𝙉𝙀𝙏 7$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/asd cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗦𝗵𝗼𝗽𝗳𝗶𝘆 𝗠𝗮𝘀𝘀</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/mss cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
 
 $bota";
@@ -349,30 +336,30 @@ $bota";
 
 $premiumaButton = json_encode([
 'inline_keyboard' => [
-                                 [['text' => "⥫ 𝘽𝘼𝘾𝙆 𝙋𝘼𝙂𝙀 𝟐", 'callback_data' => 'freec'], ['text' => "𝟒 𝙉𝙀𝙓𝙏 𝙋𝘼𝙂𝙀 ⥭", 'callback_data' => 'freeg']],
-                                 [['text' => '𝙃𝙊𝙈𝙀', 'callback_data' => 'gates']]
+                                 [['text' => "⥫ 𝗕𝗮𝗰𝗸 𝗣𝗮𝗴𝗲 𝟮", 'callback_data' => 'freec'], ['text' => "𝟰 𝗡𝗲𝘅𝘁  ⥭", 'callback_data' => 'freeg']],
+                                 [['text' => '𝗛𝗼𝗺𝗲', 'callback_data' => 'gates']]
                              ]
 
 ]);
 
 if ($cdata2 == "freea") {
-    $freeText = "𝙋𝘼𝙂𝙀 𝙉𝙊. ↯ 𝟑
+    $freeText = "𝗣𝗮𝗴𝗲 𝗡𝗼. ↯ 𝟯
 
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙃𝙊𝙋𝙄𝙁𝙔 + Braintree 10$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/sb cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝙎𝙏𝙍𝙄𝙋𝙀 49$</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/dep cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 8.61$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/sec cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗣𝗮𝘆𝗽𝗮𝗹 𝟮$ 𝗖𝗵𝗮𝗿𝗴𝗲</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/pu cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙃𝙊𝙋𝙄𝙁𝙔+𝙎𝙏𝙍𝙄𝙋𝙀 54$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/sy cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗖𝗖𝗡 𝗖𝗵𝗮𝗿𝗴𝗲 𝟬.𝟳$</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/ccn cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
 
 $bota";
@@ -400,30 +387,30 @@ $bota";
 
 $premiumgButton = json_encode([
 'inline_keyboard' => [
-                                 [['text' => "⥫ 𝘽𝘼𝘾𝙆 𝙋𝘼𝙂𝙀 𝟑", 'callback_data' => 'freea'], ['text' => "5 𝙉𝙀𝙓𝙏 𝙋𝘼𝙂𝙀 ⥭", 'callback_data' => 'freeh']],
-                                 [['text' => '𝙃𝙊𝙈𝙀', 'callback_data' => 'gates']]
+                                 [['text' => "⥫ 𝗕𝗮𝗰𝗸 𝗣𝗮𝗴𝗲 𝟑", 'callback_data' => 'freea'], ['text' => "𝗘𝗻𝗱 𝗽𝗮𝗴𝗲 ⥭", 'callback_data' => 'gates']],
+                                 [['text' => '𝗛𝗼𝗺𝗲', 'callback_data' => 'gates']]
                              ]
 
 ]);
 
 if ($cdata2 == "freeg") {
-    $freeText = "𝙋𝘼𝙂𝙀 𝙉𝙊. ↯ 𝟒
+    $freeText = "𝗣𝗮𝗴𝗲 𝗡𝗼. ↯ 𝟒
     
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 12$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/pox cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗕𝗿𝗮𝗶𝗻𝘁𝗿𝗲𝗲 𝗔𝘂𝘁𝗵</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/chk cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗙𝗙 🔴</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 49$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/dep cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗕𝗿𝗮𝗶𝗻𝘁𝗿𝗲𝗲 𝗔𝘂𝘁𝗵 𝗩𝟭</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/bvv cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙃𝙊𝙋𝙄𝙁𝙔 + 𝙎𝙏𝙍𝙄𝙋𝙀 10$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/sc cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗕𝗿𝗮𝗶𝗻𝘁𝗿𝗲𝗲 𝗔𝘂𝘁𝗵 [𝗩𝟮]</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/bva cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
 
 $bota";
@@ -446,49 +433,49 @@ $bota";
 ////// END CODE \\\\\
 
 ////// Charge Gate Page 5 /\\\\\
-$premiumgButton = json_encode([
-'inline_keyboard' => [
-                                 [['text' => "⥫ 𝘽𝘼𝘾𝙆 𝙋𝘼𝙂𝙀 𝟒", 'callback_data' => 'freeg'], ['text' => "𝙀𝙉𝘿 𝙋𝘼𝙂𝙀 ⥭", 'callback_data' => 'gates']],
-                                 [['text' => '𝙃𝙊𝙈𝙀', 'callback_data' => 'gates']]
-                             ]
+// $premiumgButton = json_encode([
+// 'inline_keyboard' => [
+//                                  [['text' => "⥫ 𝘽𝘼𝘾𝙆 𝙋𝘼𝙂𝙀 𝟒", 'callback_data' => 'freeg'], ['text' => "𝙀𝙉𝘿 𝙋𝘼𝙂𝙀 ⥭", 'callback_data' => 'gates']],
+//                                  [['text' => '𝙃𝙊𝙈𝙀', 'callback_data' => 'gates']]
+//                              ]
 
-]);
+// ]);
 
-if ($cdata2 == "freeh") {
-    $freeText = "𝙋𝘼𝙂𝙀 𝙉𝙊. ↯ 5
+// if ($cdata2 == "freeh") {
+//     $freeText = "𝙋𝘼𝙂𝙀 𝙉𝙊. ↯ 5
 
-╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙋𝘼𝙔𝙋𝘼𝙇 2$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/lul cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>ON ✅</code></b>    
-╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 2$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/sor cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>ON ✅</code></b>
-╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝘼𝙐𝙏𝙃𝙊𝙍𝙄𝙕𝙀 𝙉𝙀𝙏 200$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/anh cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
-╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
+// ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
+// <b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙋𝘼𝙔𝙋𝘼𝙇 2$</b>
+// <b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/lul cc|mm|yy|cvv</code></b>
+// <b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
+// <b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>ON ✅</code></b>    
+// ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
+// <b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 2$</b>
+// <b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/sor cc|mm|yy|cvv</code></b>
+// <b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
+// <b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>ON ✅</code></b>
+// ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
+// <b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝘼𝙐𝙏𝙃𝙊𝙍𝙄𝙕𝙀 𝙉𝙀𝙏 200$</b>
+// <b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/anh cc|mm|yy|cvv</code></b>
+// <b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
+// <b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+// ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
 
 
-$bota";
+// $bota";
 
-    // Replace this with your video URL
-    $videoUrl = "https://t.me/pandacc82/3";
+//     // Replace this with your video URL
+//     $videoUrl = "https://t.me/pandacc82/3";
 
-    $inputMediaVideo = json_encode([
-        'type' => 'video',
-        'media' => $videoUrl,
-        'caption' => $freeText,
-        'parse_mode' => 'HTML'
-    ]);
+//     $inputMediaVideo = json_encode([
+//         'type' => 'video',
+//         'media' => $videoUrl,
+//         'caption' => $freeText,
+//         'parse_mode' => 'HTML'
+//     ]);
 
-    file_get_contents("https://api.telegram.org/bot$botToken/editMessageMedia?chat_id=$cchatid2&message_id=$cmessage_id2&media=" . urlencode($inputMediaVideo) . "&reply_markup=" . urlencode($premiumgButton));
-}
+//     file_get_contents("https://api.telegram.org/bot$botToken/editMessageMedia?chat_id=$cchatid2&message_id=$cmessage_id2&media=" . urlencode($inputMediaVideo) . "&reply_markup=" . urlencode($premiumgButton));
+// }
 
 //// End Code \\\\
 
@@ -496,30 +483,30 @@ $bota";
 
 $freeButton = json_encode([
 'inline_keyboard' => [
-                                 [['text' => "⥫ 𝘽𝘼𝘾𝙆 𝙋𝘼𝙂𝙀 𝟎", 'callback_data' => 'premium'], ['text' => "𝟐 𝙉𝙀𝙓𝙏 𝙋𝘼𝙂𝙀 ⥭", 'callback_data' => 'premiump']],
-                                 [['text' => '𝙃𝙊𝙈𝙀', 'callback_data' => 'gates']]
+                                 [['text' => "⥫ 𝗕𝗮𝗰𝗸 𝗣𝗮𝗴𝗲 𝟎", 'callback_data' => 'premium'], ['text' => "𝟐 𝗡𝗲𝘅𝘁 ⥭", 'callback_data' => 'premiump']],
+                                 [['text' => '𝗛𝗼𝗺𝗲', 'callback_data' => 'gates']]
                              ]
 
 ]);
 
 if ($cdata2 == "premium") {
-   $premiumText = "𝙋𝘼𝙂𝙀 𝙉𝙊.↯ 𝟏
+   $premiumText = "𝗣𝗮𝗴𝗲 𝗡𝗼.↯ 𝟏
    
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝘽𝙍𝘼𝙄𝙉𝙏𝙍𝙀𝙀 3𝘿 𝙇𝙊𝙊𝙆𝙐𝙋</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/vbv cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗦𝘁𝗿𝗶𝗽𝗲 𝗔𝘂𝘁𝗵 [𝘃𝟭]</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/au cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝘼𝙐𝙏𝙃𝙊𝙍𝙄𝙕𝙀 𝙉𝙀𝙏 0$</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/auz cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗔𝗱𝘆𝗲𝗻𝗔𝘂𝘁𝗵</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/ady cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝘽𝙍𝘼𝙄𝙉𝙏𝙍𝙀𝙀 𝘼𝙐𝙏𝙃 [𝙑2]</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/bu cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗦𝘁𝗿𝗶𝗽𝗲 𝗖𝗵𝗮𝗿𝗴𝗲 𝟭$</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/st cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗙𝗙 🔴</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
 
 $bota";
@@ -544,25 +531,30 @@ $bota";
 
 $freeButton = json_encode([
 'inline_keyboard' => [
-                                 [['text' => "⥫ 𝘽𝘼𝘾𝙆 𝙋𝘼𝙂𝙀 𝟐", 'callback_data' => 'premium'], ['text' => "𝙀𝙉𝘿 𝙋𝘼𝙂𝙀⥭", 'callback_data' => 'gates']],
-                                 [['text' => '𝙃𝙊𝙈𝙀', 'callback_data' => 'gates']]
+                                 [['text' => "⥫ 𝗕𝗮𝗰𝗸 𝗣𝗮𝗴𝗲 𝟐", 'callback_data' => 'premium'], ['text' => "𝗘𝗻𝗱 𝗽𝗮𝗴𝗲⥭", 'callback_data' => 'gates']],
+                                 [['text' => '𝗛𝗼𝗺𝗲', 'callback_data' => 'gates']]
                              ]
 
 ]);
 
 if ($cdata2 == "premiump") {
-   $premiumText = "𝙋𝘼𝙂𝙀 𝙉𝙊. ↯ 𝟐
+   $premiumText = "𝗣𝗮𝗴𝗲 𝗡𝗼. ↯ 𝟐
    
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙏𝙍𝙄𝙋𝙀 𝘼𝙐𝙏𝙃</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/ss cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗦𝘁𝗿𝗶𝗽𝗲 𝗔𝘂𝘁𝗵</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/ss cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-<b>× 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 - 𝙎𝙌𝙐𝘼𝙍𝙀 𝘼𝙐𝙏𝙃</b>
-<b>• 𝙐𝙎𝘼𝙂𝙀 - <code>/sq cc|mm|yy|cvv</code></b>
-<b>× 𝙍𝘼𝙉𝙆 - <code>SPECIAL GRADE</code></b>
-<b>• 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code></b>
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗦𝗾𝘂𝗮𝗿𝗲 𝗔𝘂𝘁𝗵</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/sq cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
+╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
+<b>× 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 - 𝗦𝗵𝗼𝗽𝗶𝗳𝘆+𝗦𝗽𝗿𝗲𝗲𝗱𝗹𝘆 𝟲$</b>
+<b>• 𝗨𝘀𝗮𝗴𝗲 - <code>/sd cc|mm|yy|cvv</code></b>
+<b>× 𝗥𝗮𝗻𝗸 - <code>SPECIAL GRADE</code></b>
+<b>• 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code></b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
 
 
@@ -593,8 +585,8 @@ $bota";
 //==============TOOLS===============//
 $toolKeyboard = json_encode([
     'inline_keyboard' => [
-        [['text' => "𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎", 'callback_data' => 'gates']], 
-        [['text' => "𝙂𝙊 𝘽𝘼𝘾𝙆", 'callback_data' => 'back2']]
+        [['text' => "𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀", 'callback_data' => 'gates']], 
+        [['text' => "𝗕𝗮𝗰𝗸", 'callback_data' => 'back2']]
     ]
 ]);
 
@@ -602,43 +594,43 @@ $toolKeyboard = json_encode([
 
 if ($cdata2 == "herr") {
 
-  $toolcmds = "<b>📍 𝑻𝒐𝒐𝒍𝒔 </b>
+  $toolcmds = "<b> 𝗧𝗼𝗼𝗹𝘀 </b>
 <b>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-× 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 - <code>/info</code>
-• 𝙐𝙎𝘼𝙂𝙀 - <code>/info</code>
-× 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code>
+× 𝗨𝘀𝗲𝗿 𝗜𝗻𝗳𝗼 - <code>/info</code>
+• 𝗨𝘀𝗮𝗴𝗲 - <code>/info</code>
+× 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-× 𝙄𝙋 𝙇𝙊𝙊𝙆𝙐𝙋 - <code>/ip</code>
-• 𝙐𝙎𝘼𝙂𝙀 - <code>/ip 1.1.1.1</code>
-× 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code>
+× 𝗜𝗣 𝗟𝗼𝗼𝗸𝘂𝗽 - <code>/ip</code>
+• 𝗨𝘀𝗮𝗴𝗲 - <code>/ip 1.1.1.1</code>
+× 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-× 𝘽𝙄𝙉 𝙇𝙊𝙊𝙆𝙐𝙋 - <code>/bin</code>
-• 𝙐𝙎𝘼𝙂𝙀 - <code>/bin 435546</code>
-× 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code>
+× 𝗕𝗶𝗻 𝗟𝗼𝗼𝗸𝘂𝗽 - <code>/bin</code>
+• 𝗨𝘀𝗮𝗴𝗲 - <code>/bin 435546</code>
+× 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-× 𝘾𝘾 𝙂𝙀𝙉- <code>/gen</code>
-• 𝙐𝙎𝘼𝙂𝙀 - <code>/gen 509786</code>
-× 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code>
+× 𝗖𝗖 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗼𝗿- <code>/gen</code>
+• 𝗨𝘀𝗮𝗴𝗲 - <code>/gen 439786</code>
+× 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-× 𝙋𝙍𝙊𝙓𝙔 𝙂𝙀𝙉- https-socks4-socks5
-• 𝙐𝙎𝘼𝙂𝙀- <code>/http</code>, <code>/socks4</code>, <code>/socks5</code>
-× 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code>  
+× 𝗣𝗿𝗼𝘅𝘆 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗼𝗿- https-socks4-socks5
+• 𝗨𝘀𝗮𝗴𝗲- <code>/http</code>, <code>/socks4</code>, <code>/socks5</code>
+× 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code>  
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-× 𝘾𝙍𝙀𝘿𝙄𝙏𝙎 𝘾𝙃𝙀𝘾𝙆- <code>/credits</code>
-• 𝙐𝙎𝘼𝙂𝙀 - <code>/credits check</code>
-× 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code>
+× 𝗖𝗿𝗲𝗱𝗶𝘁𝘀 𝗖𝗵𝗲𝗰𝗸- <code>/credits</code>
+• 𝗨𝘀𝗮𝗴𝗲 - <code>/credits check</code>
+× 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-× 𝙁𝘼𝙆𝙀 𝘼𝘿𝘿𝙍𝙀𝙎𝙎 - <code>/fake</code>
-• 𝙐𝙎𝘼𝙂𝙀 - <code>/fake us</code>
-× 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code>
+× 𝗥𝗮𝗻𝗱𝗼𝗺 𝗔𝗱𝗱𝗿𝗲𝘀𝘀 - <code>/fake</code>
+• 𝗨𝘀𝗮𝗴𝗲 - <code>/fake us</code>
+× 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ 
-× 𝙎𝙆 𝘾𝙃𝙀𝘾𝙆𝙀𝙍 - <code>/sk</code>
-• 𝙐𝙎𝘼𝙂𝙀 - <code>/sk sk_live</code>
-× 𝙎𝙏𝘼𝙏𝙐𝙎 - <code>𝙊𝙉 ✅</code>
+× 𝗦𝗸 𝗞𝗲𝘆 𝗖𝗵𝗲𝗰𝗸𝗲𝗿 - <code>/sk</code>
+• 𝗨𝘀𝗮𝗴𝗲 - <code>/sk sk_live</code>
+× 𝗦𝘁𝗮𝘁𝘂𝘀 - <code>𝗢𝗡 ✅</code>
 ╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍╍ ╍ </b>
 
-<b>|×| 𝘿𝙀𝙑 </b>- @venkypanda82";
+<b>|×| 𝗗𝗲𝘃 </b>- $owner";
 
     // Change this to your video URL
     $videoUrl = "https://t.me/pandacc82/3";
@@ -673,13 +665,13 @@ if ($cdata2 == "herr") {
 //========finalize end=========//
 $channel = json_encode([
     'inline_keyboard' => [
-        [['text' => "𝙊𝙒𝙉𝙀𝙍", 'url' => "t.me/"], ['text' => "𝘾𝙃𝘼𝙉𝙉𝙀𝙇", 'url' => ""]],
-        [['text' => "𝙂𝙊 𝘽𝘼𝘾𝙆 ", 'callback_data' => 'back2']]
+        [['text' => "𝗢𝘄𝗻𝗲𝗿", 'url' => "t.me/"], ['text' => "𝗖𝗵𝗮𝗻𝗻𝗲𝗹", 'url' => ""]],
+        [['text' => "𝗕𝗮𝗰𝗸", 'callback_data' => 'back2']]
     ]
 ]);
 
 if ($cdata2 == "channel") {
-    $channelText = "𝙅𝙊𝙄𝙉 𝙈𝙔 𝘾𝙃𝘼𝙉𝙉𝙀𝙇𝙎 𝙁𝙊𝙍 𝘽𝙊𝙏 𝙐𝙋𝘿𝘼𝙏𝙀𝙎.";
+    $channelText = "𝗝𝗼𝗶𝗻 𝗠𝘆 𝗖𝗵𝗮𝗻𝗻𝗲𝗹𝘀 𝗙𝗼𝗿 𝗕𝗼𝘁 𝗨𝗽𝗱𝗮𝘁𝗲𝘀.";
 
     // Change this to your video URL
     $videoUrl = "https://t.me/pandacc82/3";
@@ -698,7 +690,7 @@ file_get_contents("https://api.telegram.org/bot$botToken/editMessageMedia?chat_i
 
 //==========back and close========//
 if ($cdata2 == "back2") {
-    $backtxt = ("Welcome click /price to buy the Premium plan ✅");
+    $backtxt = ("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗰𝗹𝗶𝗰𝗸 /price 𝘁𝗼 𝗯𝘂𝘆 𝘁𝗵𝗲 𝗣𝗿𝗲𝗺𝗶𝘂𝗺 𝗽𝗹𝗮𝗻 ✅");
 
     // Change this to your video url
     $backVideoUrl = "https://t.me/pandacc82/3"; 
@@ -706,8 +698,8 @@ if ($cdata2 == "back2") {
     $keyboard2 = json_encode([
     'inline_keyboard' => [
         [
-            ['text' => '𝙂𝘼𝙏𝙀𝙒𝘼𝙔𝙎', 'callback_data' => 'gates'],
-            ['text' => '𝙏𝙊𝙊𝙇𝙎', 'callback_data' => 'herr'],
+            ['text' => '𝗚𝗮𝘁𝗲𝘄𝗮𝘆𝘀', 'callback_data' => 'gates'],
+            ['text' => '𝗧𝗼𝗼𝗹𝘀', 'callback_data' => 'herr'],
         ],
         [
             ['text' => 'Bot Updates', 'callback_data' => 'channel'],
@@ -765,7 +757,7 @@ function deleteM($chatId,$message_id){
 }
 
 
-function edit_message($chatId,$message,$message_id_1) {
+function edit_message($chatId,$message,$message_id) {
   sendChatAction($chatId,"type");
    $url = $GLOBALS['website']."/editMessageText?chat_id=".$chatId."&text=".$message."&message_id=".$message_id."&parse_mode=HTML&disable_web_page_preview=True";
   file_get_contents($url);

@@ -1,66 +1,72 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+ini_set('log_errors', TRUE);
+ini_set('error_log', 'errors.log');
 //=========RANK DETERMINE=========//
-$gate = "Adyen Auth";
 $currentDate = date('Y-m-d');
-    $rank = "FREE";
-    $expiryDate = "0";
+$rank = "FREE";
+$expiryDate = "0";
 
-    $paidUsers = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
-    $freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
-    $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
+$paidUsers = file('Database/Premium.txt', FILE_IGNORE_NEW_LINES);
+$freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
+$owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
-    if(in_array($userId, $owners)) {
-        $rank = "OWNER";
-       $expiryDate = "UNTIL DEAD"; 
-    } else { 
-        foreach ($paidUsers as $index => $line) {
-            list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
-            if ($userIdFromFile == $userId) {
-                if ($userExpiryDate < $currentDate) {
-                    unset($paidUsers[$index]); //
-                    file_put_contents('Database/paid.txt', implode("\n", $paidUsers));
-                    $freeUsers[] = $userId; // add to free users list
-                    file_put_contents('Database/free.txt', implode("\n", $freeUsers));
-                } else    $currentDate = date('Y-m-d');
-    $rank = "FREE";
-    $expiryDate = "0";
+if (in_array($userId, $owners)) {
+    $rank = "OWNER";
+    $expiryDate = "UNTIL DEAD";
+} else {
+    foreach ($paidUsers as $index => $line) {
+        list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
+        if ($userIdFromFile == $userId) {
+            if ($userExpiryDate < $currentDate) {
+                unset($paidUsers[$index]); //
+                file_put_contents('Database/Premium.txt', implode("\n", $paidUsers));
+                $freeUsers[] = $userId; // add to free users list
+                file_put_contents('Database/free.txt', implode("\n", $freeUsers));
+            } else    $currentDate = date('Y-m-d');
+            $rank = "FREE";
+            $expiryDate = "0";
 
-    $paidUsers = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
-    $freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
-    $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
+            $paidUsers = file('Database/Premium.txt', FILE_IGNORE_NEW_LINES);
+            $freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
+            $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
-    if(in_array($userId, $owners)) {
-        $rank = "OWNER";
-       $expiryDate = "UNTIL DEAD"; 
-    } else {
-        foreach ($paidUsers as $index => $line) {
-            list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
-            if ($userIdFromFile == $userId) {
-                if ($userExpiryDate < $currentDate) {
-                    unset($paidUsers[$index]); 
-                    file_put_contents('Database/paid.txt', implode("\n", $paidUsers));
-                    $freeUsers[] = $userId; 
-                    file_put_contents('Database/free.txt', implode("\n", $freeUsers));
-                } else {
-                    $rank = "PAID";
-                    $expiryDate = $userExpiryDate;
+            if (in_array($userId, $owners)) {
+                $rank = "OWNER";
+                $expiryDate = "UNTIL DEAD";
+            } else {
+                foreach ($paidUsers as $index => $line) {
+                    list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
+                    if ($userIdFromFile == $userId) {
+                        if ($userExpiryDate < $currentDate) {
+                            unset($paidUsers[$index]);
+                            file_put_contents('Database/Premium.txt', implode("\n", $paidUsers));
+                            $freeUsers[] = $userId;
+                            file_put_contents('Database/free.txt', implode("\n", $freeUsers));
+                        } else {
+                            $rank = "Premium";
+                            $expiryDate = $userExpiryDate;
+                        }
+                    }
                 }
-            }
-        }
-    } {
-                    $rank = "PAID";
-                    $expiryDate = $userExpiryDate;
-                }
+            } {
+                $rank = "Premium";
+                $expiryDate = $userExpiryDate;
             }
         }
     }
+}
+
 //=======RANK DETERMINE END=========//
 $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];
 //========WHO CAN CHECK FUNC========//
-
+$gate = "𝗔𝗱𝘆𝗲𝗻𝗔𝘂𝘁𝗵";
 //=====WHO CAN CHECK FUNC END======//
-if (preg_match('/^(\/any|\.any|!any)/', $text)) {
+if (preg_match('/^(\/ady|\.ady|!ady)/', $text)) {
     $userid = $update['message']['from']['id'];
 
   if (!checkAccess($userid)) {
@@ -77,7 +83,7 @@ $start_time = microtime(true);
 
 //====ANTISPAM AND WRONG FORMAT====//
     if (strlen($message) <= 4) {
-            sendMessage($chatId, '<b>• Wrong Format! ⚠️</b>         𝘚𝘦𝘯𝘥 <code>/any cc|mm|yy|cvv</code>        • 𝘎𝘢𝘵𝘦𝘸𝘢𝘺 <code>'.$gate.'</code>', $message_id);
+            sendMessage($chatId, "<b>• 𝗪𝗿𝗼𝗻𝗴 𝗙𝗼𝗿𝗺𝗮𝘁! ⚠️</b>%0A• 𝘀𝗲𝗻𝗱 <code>/ady cc|mm|yy|cvv</code>%0A• 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 <code>$gate</code>", $message_id);
             exit();
   }
   $r = "112";
@@ -110,7 +116,7 @@ $cvv = isset($separa[3]) ? $separa[3] : '';
 $last4 = substr($cc, -4);
 
 
-$sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b>REVIEWING YOU'RE REQUEST ✅</b>");
+$sent_message_id = send_reply($chatId, $message_id, $keyboard, "<b>🆁🅴🆅🅸🅴🆆🅸🅽🅶 🆈🅾🆄'🆁🅴 🆁🅴🆀🆄🅴🆂🆃</b>");
 
 function value($str,$find_start,$find_end)
 {
@@ -182,44 +188,37 @@ $pass = passwordGen();
 
 
 
+  //==================[BIN LOOK-UP]======================//
+
   $ch = curl_init();
+  // Set cURL options
+  curl_setopt($ch, CURLOPT_URL, 'https://jetixchecker.com/v1/bin/' . $lista);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_HTTPGET, 1);
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+  curl_setopt($ch, CURLOPT_HTTPHEADER, ['User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0', 'Pragma: no-cache', 'Accept: */*']);
+  // Execute cURL session and store the output
+  $binoutput = curl_exec($ch);
+  // Close cURL session
+  curl_close($ch);
+  ob_flush();
+  // Decode the JSON response
+  $data = json_decode($binoutput, true);
+  // Extracting variables from the response
+  $brand = $data['data']['brand'];
+  $type = $data['data']['type'];
+  $category = $data['data']['category'];
+  $bininfo = "$brand - $type - $category";
+  $bank = $data['data']['bank'];
+  $country = "{$data['data']['country_name']} {$data['data']['country_flag']}";
 
-  $bin = substr($cc, 0, 6);
+//==================[BIN LOOK-UP-END]======================//
 
-  curl_setopt($ch, CURLOPT_URL, 'https://binlist.io/lookup/' . $bin . '/');
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    $ch = curl_init();
 
-    $bin = substr($cc, 0, 6);
-
-    curl_setopt($ch, CURLOPT_URL, 'https://binlist.io/lookup/' . $bin . '/');
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    $bindata = curl_exec($ch);
-    $binna = json_decode($bindata, true);
-    $brand = $binna['scheme'];
-    $country = $binna['country']['name'];
-    $alpha2 = $binna['country']['alpha2'];
-    $emoji = $binna['country']['emoji'];
-    $type = $binna['type'];
-    $category = $binna['category'];
-    $bank = $binna['bank']['name'];
-    $url = $binna['bank']['url'];
-    $phone = $binna['bank']['phone'];
-    curl_close($ch);
-
-    $bank = "$bank";
-    $country = "$country $emoji ";
-    $bin = "$bin - ($alpha2) -[$emoji] ";
-    $bininfo = "$type - $brand - $category";
-    $url = "$url";
-    $type = strtoupper($type);
-  
 
 sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>[×] PROCESS - ■□□□
+    edit_sent_message($chatId, $sent_message_id, "<b>
+[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] CARD ↯ <code>$lista</code>
 [×] GATEWAY ↯ $gate
@@ -271,7 +270,8 @@ curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
   
   sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>[×] PROCESS - ■■□□
+    edit_sent_message($chatId, $sent_message_id, "<b>
+[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 2𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] CARD ↯ <code>$lista</code>
 [×] GATEWAY ↯ $gate
@@ -308,7 +308,8 @@ $headers[] = 'user-agent: Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KH
 $headers[] = 'x-requested-with: XMLHttpRequest';
 
   sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>[×] PROCESS - ■■■□
+    edit_sent_message($chatId, $sent_message_id, "<b>
+[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 5𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] CARD ↯ <code>$lista</code>
 [×] GATEWAY ↯ $gate
@@ -345,7 +346,8 @@ $msg = $jsonResponse2['message'];
 
 
 sleep(1);
-    edit_sent_message($chatId, $sent_message_id, "<b>[×] PROCESS - ■■■■
+    edit_sent_message($chatId, $sent_message_id, "<b>
+[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 𝟙𝟘𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] CARD ↯ <code>$lista</code>
 [×] GATEWAY ↯ $gate
@@ -398,18 +400,18 @@ $respo = ("Approved");
 
 else {
 $status = ("𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱 ❌");  
-$respo = ("$msg");
+$respo = ("Payment rejected");
 }
 
   $resp = "$status
 
-<b>💳</b>  <code>$lista</code>
-⌬ 𝐆𝐚𝐭𝐞𝐰𝐚𝐲 ↯ <code>$gate</code>
-⌬ 𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐞 ↯ <code>$respo</code>
+𝐂𝐚𝐫𝐝 ↯ <code>$lista</code>
+𝐆𝐚𝐭𝐞𝐰𝐚𝐲 ↯ <code>$gate</code>
+𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐞 ↯ <code>$respo</code>
 
-⌬ 𝐁𝐢𝐧 𝐈𝐧𝐟𝐨 ↯ <code>$bininfo</code> 
-⌬ 𝐁𝐚𝐧𝐤 ↯ <code>$bank</code>
-⌬ 𝐂𝐨𝐮𝐧𝐭𝐫𝐲 ↯ <code>$country</code>
+𝐁𝐢𝐧 𝐈𝐧𝐟𝐨 ↯ <code>$bininfo</code> 
+𝐁𝐚𝐧𝐤 ↯ <code>$bank</code>
+𝐂𝐨𝐮𝐧𝐭𝐫𝐲 ↯ <code>$country</code>
 
 𝐓𝐢𝐦𝐞 ↯ <code>$time Seconds</code>
 $botu";

@@ -7,7 +7,7 @@ ini_set('log_errors', TRUE);
 ini_set('error_log', 'errors.log');
 //=========RANK DETERMINE=========//
 
-$gate = "𝙎𝙏𝙍𝙄𝙋𝙀 𝘼𝙐𝙏𝙃";
+$gate = "𝗦𝘁𝗿𝗶𝗽𝗲 𝗔𝘂𝘁𝗵";
 
 $currentDate = date('Y-m-d');
 $currentDate = date('Y-m-d');
@@ -86,7 +86,7 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
     $message = substr($message, 4);
     $messageidtoedit1 = bot('sendmessage', [
         'chat_id' => $chat_id,
-        'text' => "<b>Processing... </b>",
+        'text' => "<b>↯ 🆁🅴🆅🅸🅴🆆🅸🅽🅶 🆈🅾🆄'🆁🅴 🆁🅴🆀🆄🅴🆂🆃 ↯</b>",
         'parse_mode' => 'html',
         'reply_to_message_id' => $message_id
     ]);
@@ -156,7 +156,7 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
   bot('editMessageText', [
             'chat_id' => $chat_id,
             'message_id' => $messageidtoedit,
-            'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■□□□
+            'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 2𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -243,7 +243,7 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
     bot('editMessageText', [
             'chat_id' => $chat_id,
             'message_id' => $messageidtoedit,
-            'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■□□
+            'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 4𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -324,7 +324,7 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
   bot('editMessageText', [
             'chat_id' => $chat_id,
             'message_id' => $messageidtoedit,
-            'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■□
+            'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 8𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -375,7 +375,7 @@ if (preg_match('/^(\/ss|\.ss|!ss)/', $text)) {
   bot('editMessageText', [
             'chat_id' => $chat_id,
             'message_id' => $messageidtoedit,
-            'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■■
+            'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 𝟙𝟘𝟘% 🟩
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate

@@ -11,8 +11,8 @@ function checkAndUpdateUserStatus($userId, $username, $firstname, $chatId, $mess
     $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
     if(in_array($userId, $owners)) {
-        $rank = "OWNER";
-       $expiryDate = "UNTIL DEAD"; 
+        $rank = "𝗢𝗪𝗡𝗘𝗥";
+       $expiryDate = "𝗨𝗡𝗧𝗜𝗟 𝗗𝗘𝗔𝗗"; 
     } else {
         foreach ($paidUsers as $index => $line) {
             list($userIdFromFile, $userExpiryDate) = explode(" ", $line);

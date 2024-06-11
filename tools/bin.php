@@ -2,7 +2,7 @@
 
 
  $currentDate = date('Y-m-d');
-    $rank = "FREE";
+    $rank = "𝗙𝗥𝗘𝗘";
     $expiryDate = "0";
 
     $paidUsers = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
@@ -10,8 +10,8 @@
     $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
     if(in_array($userId, $owners)) {
-        $rank = "OWNER";
-       $expiryDate = "UNTIL DEAD"; 
+        $rank = "𝗢𝗪𝗡𝗘𝗥";
+       $expiryDate = "𝗨𝗡𝗧𝗜𝗟 𝗗𝗘𝗔𝗗"; 
     } else {
         foreach ($paidUsers as $index => $line) {
             list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
@@ -22,7 +22,7 @@
                     $freeUsers[] = $userId;
                     file_put_contents('Database/free.txt', implode("\n", $freeUsers));
                 } else    $currentDate = date('Y-m-d');
-    $rank = "FREE";
+    $rank = "𝗙𝗥𝗘𝗘";
     $expiryDate = "0";
 
     $paidUsers = file('Database/paid.txt', FILE_IGNORE_NEW_LINES);
@@ -30,8 +30,8 @@
     $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
     if(in_array($userId, $owners)) {
-        $rank = "OWNER";
-       $expiryDate = "UNTIL DEAD"; 
+        $rank = "𝗢𝗪𝗡𝗘𝗥";
+       $expiryDate = "𝗨𝗡𝗧𝗜𝗟 𝗗𝗘𝗔𝗗"; 
     } else {
         foreach ($paidUsers as $index => $line) {
             list($userIdFromFile, $userExpiryDate) = explode(" ", $line);
@@ -85,11 +85,11 @@ if ((strpos($message, "/bin") === 0) || (strpos($message, "!bin") === 0) || (str
 
     if (empty($bank)) {
         $lookup = '<b>Lookup Failed ❌</b>';
-        sendMessage($chatId, "<b>$lookup%0A%0ABin : $bin</b>", $message_id);
+        sendMessage($chatId, "<b>$lookup%0A%0A𝗕𝗶𝗻 : $bin</b>", $message_id);
         exit();
     } else {
-        $lookup = '<b>𝘽𝙄𝙉 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉 💎</b>';
-        sendMessage($chatId, "<b>$lookup%0A═════════════════%0A•├𝘽𝙄𝙉 : <code>$bin</code>%0A•├𝙄𝙉𝙁𝙊 : <code>$scheme</code>%0A•├𝙏𝙔𝙋𝙀: <code>$type</code>%0A•├𝘽𝙍𝘼𝙉𝘿 : <code>$brand</code>%0A•├𝘽𝘼𝙉𝙆 : <code>$bank</code>%0A•├COUNTRY : <code>$name</code> $emoji%0A═════════════════%0A•├𝘾𝙃𝙀𝘾𝙆𝙀𝘿 𝘽𝙔 : @$username <code>[$rank]</code>%0A$botu</b>", $message_id);
+        $lookup = '<b>火 BIN INFORMATION♻️</b>';
+        sendMessage($chatId, "<b>$lookup%0A╔═════════════════╗%0A•├BIN : <code>$bin</code>%0A•├INFO : <code>$scheme</code>%0A•├TYPE: <code>$type</code>%0A•├BRAND : <code>$brand</code>%0A•├𝗕𝗔𝗡𝗞 : <code>$bank</code>%0A•├𝗖𝗢𝗨𝗡𝗧𝗥𝗬 : <code>$name</code> $emoji%0A╚═════════════════╝%0A•├𝗖𝗛𝗘𝗖𝗞𝗘𝗗 𝗕𝗬 : @$username <code>[$rank]</code>%0A•├𝗗𝗲𝘃 :<code>@venkypanda82</code></b>", $message_id);
     }
 }
 

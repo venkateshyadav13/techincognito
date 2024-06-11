@@ -8,7 +8,7 @@ ini_set('error_log', 'errors.log');
 
 
 //=========RANK DETERMINE=========//
-$gate = "Braintree Auth [V2]";
+$gate = "𝗕𝗿𝗮𝗶𝗻𝘁𝗿𝗲𝗲 𝗔𝘂𝘁𝗵 [𝗩𝟮]";
 $currentDate = date('Y-m-d');
 $rank = "FREE";
 $expiryDate = "0";
@@ -68,10 +68,10 @@ $update = json_decode(file_get_contents("php://input"), TRUE);
 $text = $update["message"]["text"];
 //========WHO CAN CHECK FUNC========//
 $r = "0";
-$gcm = "/bu";
+$gcm = "/bva";
 $r = rand(0, 100);
 //=====WHO CAN CHECK FUNC END======//
-if (preg_match('/^(\/bu|\.bu|!bu)/', $text)) {
+if (preg_match('/^(\/bva|\.bva|!bva)/', $text)) {
     $userid = $update['message']['from']['id'];
 
     if (!checkAccess($userid)) {
@@ -86,7 +86,7 @@ if (preg_match('/^(\/bu|\.bu|!bu)/', $text)) {
     $message = substr($message, 4);
     $messageidtoedit1 = bot('sendmessage', [
         'chat_id' => $chat_id,
-        'text' => "<b>Please wait.......</b>",
+        'text' => "<b>↯ 🆁🅴🆅🅸🅴🆆🅸🅽🅶 🆈🅾🆄'🆁🅴 🆁🅴🆀🆄🅴🆂🆃 ↯</b>",
         'parse_mode' => 'html',
         'reply_to_message_id' => $message_id
     ]);
@@ -160,7 +160,7 @@ $c4 = substr($cc, -4);
   bot('editMessageText', [
           'chat_id' => $chat_id,
           'message_id' => $messageidtoedit,
-          'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■□□□
+          'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 1𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -225,7 +225,7 @@ $curl2 = curl_exec($ch);
     bot('editMessageText', [
           'chat_id' => $chat_id,
           'message_id' => $messageidtoedit,
-          'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■□□
+          'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 5𝟘%
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate
@@ -295,7 +295,7 @@ curl_close($ch);
   bot('editMessageText', [
           'chat_id' => $chat_id,
           'message_id' => $messageidtoedit,
-          'text' => "<b>[×] 𝙋𝙍𝙊𝘾𝙀𝙎𝙎𝙄𝙉𝙂 - ■■■■
+          'text' => "<b>[×] ℂ𝕙𝕖𝕔𝕜𝕚𝕟𝕘 𝟙𝟘𝟘% 🟩
 - - - - - - - - - - - - - - - - - - -
 [×] 𝘾𝘼𝙍𝘿 ↯ <code>$lista</code>
 [×] 𝙂𝘼𝙏𝙀𝙒𝘼𝙔 ↯ $gate

